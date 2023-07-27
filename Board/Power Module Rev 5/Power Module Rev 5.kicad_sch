@@ -1,0 +1,116 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 678ed6a7-73b5-414a-90da-5837647f5dd4)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 110.49 34.29) (size 21.59 11.43) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 405114dd-d4fe-4839-9cad-0a144ad10c54)
+    (property "Sheetname" "L9966" (at 110.49 33.5784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "L9966.kicad_sch" (at 110.49 46.3046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Power Module Rev 5"
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4" (page "13"))
+      )
+    )
+  )
+
+  (sheet (at 38.1 67.31) (size 16.51 13.97) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 5f62fb7d-cbf7-4d27-a1ad-ba6a2098de65)
+    (property "Sheetname" "Can Bus" (at 38.1 66.5984 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "CanBus.kicad_sch" (at 38.1 81.8646 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Power Module Rev 5"
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4" (page "15"))
+      )
+    )
+  )
+
+  (sheet (at 39.37 33.02) (size 20.32 15.24) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid a3a78077-6b53-4c9d-ba53-5da8cf684a1d)
+    (property "Sheetname" "Mcu" (at 39.37 32.3084 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Mcu.kicad_sch" (at 39.37 48.8446 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Power Module Rev 5"
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4" (page "2"))
+      )
+    )
+  )
+
+  (sheet (at 186.69 33.02) (size 22.86 17.78) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid b50a73be-7e65-4210-aee7-1767c41d815a)
+    (property "Sheetname" "Connectors" (at 186.69 32.3084 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Connectors.kicad_sch" (at 186.69 51.3846 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Power Module Rev 5"
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4" (page "7"))
+      )
+    )
+  )
+
+  (sheet (at 142.24 33.02) (size 30.48 19.05) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid ba6f5248-4cb0-41f9-9534-0fba5bdbe75a)
+    (property "Sheetname" "High Side Drivers" (at 142.24 32.3084 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "HighSideDrivers.kicad_sch" (at 142.24 52.6546 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Power Module Rev 5"
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4" (page "8"))
+      )
+    )
+  )
+
+  (sheet (at 72.39 34.29) (size 22.86 15.24) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid feebb081-6589-424d-8c7b-64a950879a4e)
+    (property "Sheetname" "Power Regulation" (at 72.39 33.5784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "PowerRegulation.kicad_sch" (at 72.39 50.1146 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "Power Module Rev 5"
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4" (page "14"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
