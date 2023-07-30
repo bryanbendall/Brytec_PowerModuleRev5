@@ -55,3 +55,4 @@
 
 # Board
 *.zip
+*.kicad_pcb-bak
