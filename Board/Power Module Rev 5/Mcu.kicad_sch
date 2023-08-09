@@ -296,6 +296,7 @@
         )
       )
     )
+<<<<<<< HEAD
     (symbol "Device:C_Small" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom yes) (on_board yes)
       (property "Reference" "C" (at 0.254 1.778 0)
         (effects (font (size 1.27 1.27)) (justify left))
@@ -503,6 +504,8 @@
         )
       )
     )
+=======
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
     (symbol "MCU_ST_STM32G4:STM32G491CEUx" (in_bom yes) (on_board yes)
       (property "Reference" "U" (at -12.7 44.45 0)
         (effects (font (size 1.27 1.27)) (justify left))
@@ -1206,6 +1209,7 @@
         )
       )
     )
+<<<<<<< HEAD
     (symbol "power:+3.3V" (power) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "#PWR" (at 0 -3.81 0)
         (effects (font (size 1.27 1.27)) hide)
@@ -1552,15 +1556,61 @@
     (stroke (width 0) (type default))
     (uuid feb8bd98-3864-43c8-a10b-e50e8ad8ba86)
   )
+=======
+  )
+
+  (junction (at 259.08 50.8) (diameter 0) (color 0 0 0 0)
+    (uuid 25998266-2424-4afc-af0d-8b8f550dcbbd)
+  )
+  (junction (at 259.08 43.18) (diameter 0) (color 0 0 0 0)
+    (uuid 67dde8aa-5f22-4eef-acad-ecb021a4a90c)
+  )
+
+  (wire (pts (xy 256.54 48.26) (xy 259.08 48.26))
+    (stroke (width 0) (type default))
+    (uuid 0a69484c-66e4-4351-a13f-141228e1dd5f)
+  )
+  (wire (pts (xy 259.08 45.72) (xy 259.08 43.18))
+    (stroke (width 0) (type default))
+    (uuid 0ff07ec1-1296-4c79-802e-dbe5e2a5212a)
+  )
+  (wire (pts (xy 256.54 50.8) (xy 259.08 50.8))
+    (stroke (width 0) (type default))
+    (uuid 4ba81c3c-16b6-4917-b58e-7bfa5afdba36)
+  )
+  (wire (pts (xy 259.08 48.26) (xy 259.08 50.8))
+    (stroke (width 0) (type default))
+    (uuid 750e553c-17ed-437f-bb16-b2e71b42d290)
+  )
+  (wire (pts (xy 259.08 50.8) (xy 264.16 50.8))
+    (stroke (width 0) (type default))
+    (uuid 7ee344af-0b77-4e4e-8a5d-92d5f397b354)
+  )
+  (wire (pts (xy 256.54 45.72) (xy 259.08 45.72))
+    (stroke (width 0) (type default))
+    (uuid c2fbd10c-9352-44ef-a718-4f9b9688a4e0)
+  )
+  (wire (pts (xy 259.08 43.18) (xy 264.16 43.18))
+    (stroke (width 0) (type default))
+    (uuid cc88d053-e66c-41d3-ad02-deea9842d9c7)
+  )
+  (wire (pts (xy 256.54 43.18) (xy 259.08 43.18))
+    (stroke (width 0) (type default))
+    (uuid e7648c43-cb14-46e2-b2f9-b7fcad74d0ac)
+  )
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
 
   (label "SWO" (at 87.63 179.07 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 0341e7d8-e104-40cc-83fa-7fa406059f6b)
   )
+<<<<<<< HEAD
   (label "SPI1_SS2" (at 85.09 78.74 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 22c7d714-8470-4fd2-a3bd-931a1741a808)
   )
+=======
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
   (label "SWCLK" (at 87.63 173.99 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 55e9575c-9aac-49a3-9a30-58f13263d3e1)
@@ -1573,7 +1623,11 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 6fb3517c-b4e9-4252-9699-b3c4e5e5e113)
   )
+<<<<<<< HEAD
   (label "Usb D-" (at 243.84 44.45 0) (fields_autoplaced)
+=======
+  (label "Usb D-" (at 264.16 43.18 0) (fields_autoplaced)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 77383c9e-ae9d-4494-a4df-53dc6fb02a81)
   )
@@ -1593,6 +1647,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid aa953e05-6907-4bfd-81f4-7dbd965468c1)
   )
+<<<<<<< HEAD
   (label "Usb D+" (at 243.84 52.07 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid be8a1acc-5467-4f74-a40a-fb866bbdf4df)
@@ -1601,20 +1656,33 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid c4162eef-940d-4fdf-9162-cf6185aeab9e)
   )
+=======
+  (label "Usb D+" (at 264.16 50.8 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid be8a1acc-5467-4f74-a40a-fb866bbdf4df)
+  )
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
   (label "Usb D+" (at 118.11 71.12 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid ccd7c139-1cc6-4595-9a4c-746f2bd1ed85)
   )
+<<<<<<< HEAD
   (label "SPI1_SS2" (at 222.25 127 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid cfdfa723-9fbb-453e-a854-1fdaac927118)
   )
+=======
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
   (label "SWDIO" (at 87.63 176.53 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid e9359e84-1e0c-4c79-a9ce-d4807bc58919)
   )
 
+<<<<<<< HEAD
   (global_label "Usb 5V" (shape input) (at 236.22 31.75 0) (fields_autoplaced)
+=======
+  (global_label "Usb 5V" (shape input) (at 262.89 30.48 0) (fields_autoplaced)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 121db0ee-72eb-4409-a527-3f28ae99feb7)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 245.6935 31.75 0)
@@ -1628,6 +1696,7 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "SPI1_Miso" (shape input) (at 118.11 55.88 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 17951ce3-09dc-4580-ad4c-afecd210aa63)
@@ -1642,6 +1711,15 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+=======
+  (global_label "L6699-Miso" (shape input) (at 118.11 55.88 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 17951ce3-09dc-4580-ad4c-afecd210aa63)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 132.6876 55.88 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
   (global_label "Is5" (shape input) (at 85.09 81.28 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 38a79e32-d8b9-4c4c-9135-961b38fbe681)
@@ -1656,6 +1734,7 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "Power Switch Status" (shape input) (at 118.11 78.74 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 42a3da1a-00c2-47f9-962b-70323ef6016a)
@@ -1668,6 +1747,20 @@
     (uuid 43f8dd6b-e990-4da3-a8d6-c4cfab18d84e)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 74.6852 116.84 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
+=======
+  (global_label "Power Switch Status" (shape input) (at 151.13 105.41 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 42a3da1a-00c2-47f9-962b-70323ef6016a)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 173.2792 105.41 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+  )
+  (global_label "Den7-8" (shape input) (at 154.94 88.9 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 43f8dd6b-e990-4da3-a8d6-c4cfab18d84e)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 165.3448 88.9 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
     )
   )
   (global_label "L6699-Sync" (shape input) (at 85.09 68.58 180) (fields_autoplaced)
@@ -1677,10 +1770,17 @@
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "SPI1_SS1" (shape input) (at 118.11 50.8 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 5b5c341c-128e-4ba9-90fc-0617090c8304)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 129.9057 50.8 0)
+=======
+  (global_label "L6699-Cs" (shape input) (at 118.11 50.8 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 5b5c341c-128e-4ba9-90fc-0617090c8304)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 130.7524 50.8 0)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -1705,10 +1805,17 @@
       (effects (font (size 1.27 1.27)) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "SPI1_Sclk" (shape input) (at 118.11 53.34 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 8406df99-d7e1-470a-ad1d-7d59da237dc1)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 130.2686 53.34 0)
+=======
+  (global_label "L6699-Sclk" (shape input) (at 118.11 53.34 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 8406df99-d7e1-470a-ad1d-7d59da237dc1)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 132.4457 53.34 0)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -1719,10 +1826,17 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "Den2" (shape input) (at 85.09 101.6 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 9935b550-d6e4-4365-a587-5b6af7580049)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 77.4671 101.6 0)
+=======
+  (global_label "Den2" (shape input) (at 172.72 76.2 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 9935b550-d6e4-4365-a587-5b6af7580049)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 165.0971 76.2 0)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
       (effects (font (size 1.27 1.27)) (justify right) hide)
     )
   )
@@ -1747,6 +1861,7 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "Pwm_Ctr_Enable" (shape input) (at 118.11 66.04 0)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid a94bc9dd-f6e4-4e47-aede-db5bf044db1b)
@@ -1759,6 +1874,20 @@
     (uuid aa318d4c-8cf5-4dfa-a477-47478b92157c)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 74.1409 111.76 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
+=======
+  (global_label "Pwm_Ctr_Enable" (shape input) (at 151.13 95.25 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid a94bc9dd-f6e4-4e47-aede-db5bf044db1b)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 151.13 95.25 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+  )
+  (global_label "Dsel7-8" (shape input) (at 154.94 86.36 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid aa318d4c-8cf5-4dfa-a477-47478b92157c)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 165.8891 86.36 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
     )
   )
   (global_label "CanRx" (shape input) (at 85.09 91.44 180) (fields_autoplaced)
@@ -1773,6 +1902,7 @@
     (uuid bb5e7f91-bd0b-4af6-98e5-3129a8b73e43)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 75.3504 114.3 0)
       (effects (font (size 1.27 1.27)) (justify right) hide)
+<<<<<<< HEAD
     )
   )
   (global_label "Den5" (shape input) (at 85.09 104.14 180) (fields_autoplaced)
@@ -1789,6 +1919,17 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+=======
+    )
+  )
+  (global_label "Den5" (shape input) (at 171.45 81.28 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid cb450bda-7030-40ba-96cc-ce1e67610bac)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 163.8271 81.28 0)
+      (effects (font (size 1.27 1.27)) (justify right) hide)
+    )
+  )
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
   (global_label "SCL" (shape input) (at 118.11 63.5 0)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid d7135820-f781-475f-aa8d-997edda6a8e7)
@@ -1796,6 +1937,7 @@
       (effects (font (size 1.27 1.27)) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "SPI1_Miso" (shape input) (at 213.36 130.81 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid d8db805a-be1b-4655-9787-4d7eaa3bc394)
@@ -1803,6 +1945,8 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+=======
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
   (global_label "Is1" (shape input) (at 118.11 40.64 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid dc87ba74-9b32-49fc-a3ba-fcea21161aba)
@@ -1810,10 +1954,17 @@
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
+<<<<<<< HEAD
   (global_label "SPI1_Mosi" (shape input) (at 118.11 58.42 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid ea22b4f5-46d9-4ec3-9bd2-f2766022f9d9)
     (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 130.5105 58.42 0)
+=======
+  (global_label "L6699-Mosi" (shape input) (at 118.11 58.42 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid ea22b4f5-46d9-4ec3-9bd2-f2766022f9d9)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 132.6876 58.42 0)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )
@@ -1866,6 +2017,7 @@
     )
   )
 
+<<<<<<< HEAD
   (symbol (lib_id "Device:Crystal_Small") (at 71.12 72.39 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0350650f-7205-47e1-b7b8-8e3f89daffef)
@@ -1996,6 +2148,20 @@
     (property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" (at 80.01 191.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+=======
+  (symbol (lib_id "Connector:Conn_ARM_SWD_TagConnect_TC2030-NL") (at 80.01 173.99 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 1b38225a-cc91-4daa-89d9-8be219820d98)
+    (property "Reference" "J4" (at 73.66 173.355 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Value" "Conn_ARM_SWD_TagConnect_TC2030-NL" (at 73.66 175.895 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+    )
+    (property "Footprint" "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" (at 80.01 191.77 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
     (property "Datasheet" "https://www.tag-connect.com/wp-content/uploads/bsk-pdf-manager/TC2030-CTX_1.pdf" (at 80.01 189.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2152,6 +2318,7 @@
     (pin "9" (uuid db4e9d7e-7f04-4a73-ba7b-dab764c1da34))
     (instances
       (project "Power Module Rev 5"
+<<<<<<< HEAD
         (path "/678ed6a7-73b5-414a-90da-5837647f5dd4/a3a78077-6b53-4c9d-ba53-5da8cf684a1d"
           (reference "U17") (unit 1)
         )
@@ -2552,6 +2719,10 @@
         )
         (path "/678ed6a7-73b5-414a-90da-5837647f5dd4/a3a78077-6b53-4c9d-ba53-5da8cf684a1d"
           (reference "#PWR076") (unit 1)
+=======
+        (path "/678ed6a7-73b5-414a-90da-5837647f5dd4/a3a78077-6b53-4c9d-ba53-5da8cf684a1d"
+          (reference "U17") (unit 1)
+>>>>>>> 6b5471ec47add1de783d7c59ab95c8e1ddd38bb1
         )
       )
     )
