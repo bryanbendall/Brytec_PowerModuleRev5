@@ -1060,7 +1060,7 @@
     (property "Value" "PCA9685BS" (at 67.9959 38.1 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_DFN_QFN:QFN-28-1EP_6x6mm_P0.65mm_EP4.25x4.25mm" (at 66.675 84.455 0)
+    (property "Footprint" "Package_DFN_QFN:QFN-28-1EP_6x6mm_P0.65mm_EP4.25x4.25mm_ThermalVias" (at 66.675 84.455 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Datasheet" "http://www.nxp.com/documents/data_sheet/PCA9685.pdf" (at 55.88 41.91 0)
