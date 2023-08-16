@@ -1778,7 +1778,7 @@
     (property "Value" "Conn_01x16_Pin" (at 261.62 72.39 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Eagle_WP-BUCF (rev22a):WP-BUFU_7461147_HAL" (at 261.62 49.53 0)
+    (property "Footprint" "Eagle_WP-BUCF (rev22a):WP-BUFU_7461097_HAL" (at 261.62 49.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 261.62 49.53 0)
