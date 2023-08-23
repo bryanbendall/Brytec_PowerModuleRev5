@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\b_ben\OneDrive\Documents\BrytecBoards\Brytec_PowerModuleRev5\Board\Power Module Rev 5\Power Module Rev 5.kicad_sch</source>
-    <date>2023-08-18 10:32:56 PM</date>
+    <date>2023-08-20 9:11:17 AM</date>
     <tool>Eeschema (7.0.0)</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -277,7 +277,7 @@
   </design>
   <components>
     <comp ref="C18">
-      <value>~</value>
+      <value>10pF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Mcu"/>
@@ -288,7 +288,7 @@
       <tstamps>1ab36885-336a-403c-b2ac-2a4331c45ecc</tstamps>
     </comp>
     <comp ref="C19">
-      <value>~</value>
+      <value>10pF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Mcu"/>
@@ -299,7 +299,7 @@
       <tstamps>7356ac03-c5ff-47a4-aba6-87fa1445ccb5</tstamps>
     </comp>
     <comp ref="C49">
-      <value>~</value>
+      <value>10pF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Mcu"/>
@@ -310,7 +310,7 @@
       <tstamps>2410361f-7a30-40b1-a44a-eaf73bf2c2af</tstamps>
     </comp>
     <comp ref="C50">
-      <value>~</value>
+      <value>10pF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Mcu"/>
@@ -590,20 +590,9 @@
       <sheetpath names="/Mcu/" tstamps="/a3a78077-6b53-4c9d-ba53-5da8cf684a1d/"/>
       <tstamps>494f478a-a9dc-4a4c-8985-6a24c5263333</tstamps>
     </comp>
-    <comp ref="Y1">
-      <value>Crystal_Small</value>
-      <footprint>Crystal:Crystal_SMD_5032-2Pin_5.0x3.2mm</footprint>
-      <libsource lib="Device" part="Crystal_Small" description="Two pin crystal, small symbol"/>
-      <property name="Sheetname" value="Mcu"/>
-      <property name="Sheetfile" value="Mcu.kicad_sch"/>
-      <property name="ki_description" value="Two pin crystal, small symbol"/>
-      <property name="ki_keywords" value="quartz ceramic resonator oscillator"/>
-      <sheetpath names="/Mcu/" tstamps="/a3a78077-6b53-4c9d-ba53-5da8cf684a1d/"/>
-      <tstamps>6abf49f0-cf36-4f2a-8218-91bb608128de</tstamps>
-    </comp>
     <comp ref="Y2">
-      <value>Crystal_Small</value>
-      <footprint>Crystal:Crystal_SMD_5032-2Pin_5.0x3.2mm</footprint>
+      <value>32.768kHz</value>
+      <footprint>Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm</footprint>
       <libsource lib="Device" part="Crystal_Small" description="Two pin crystal, small symbol"/>
       <property name="Sheetname" value="Mcu"/>
       <property name="Sheetfile" value="Mcu.kicad_sch"/>
@@ -612,8 +601,19 @@
       <sheetpath names="/Mcu/" tstamps="/a3a78077-6b53-4c9d-ba53-5da8cf684a1d/"/>
       <tstamps>0350650f-7205-47e1-b7b8-8e3f89daffef</tstamps>
     </comp>
+    <comp ref="Y3">
+      <value>8MHz</value>
+      <footprint>Crystal:Crystal_SMD_5032-4Pin_5.0x3.2mm</footprint>
+      <libsource lib="Device" part="Crystal_GND24_Small" description="Four pin crystal, GND on pins 2 and 4, small symbol"/>
+      <property name="Sheetname" value="Mcu"/>
+      <property name="Sheetfile" value="Mcu.kicad_sch"/>
+      <property name="ki_description" value="Four pin crystal, GND on pins 2 and 4, small symbol"/>
+      <property name="ki_keywords" value="quartz ceramic resonator oscillator"/>
+      <sheetpath names="/Mcu/" tstamps="/a3a78077-6b53-4c9d-ba53-5da8cf684a1d/"/>
+      <tstamps>7ffcfe40-be83-4f5d-b3c8-b32dc689139b</tstamps>
+    </comp>
     <comp ref="C24">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Single Output 2"/>
@@ -713,7 +713,7 @@
       <tstamps>365e0488-5bae-44d3-b9a9-e0d6194530d8</tstamps>
     </comp>
     <comp ref="C38">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Dual Output 9-10"/>
@@ -812,7 +812,7 @@
       <tstamps>ff90bf46-78b0-40ca-b203-10d72ca3e0d8</tstamps>
     </comp>
     <comp ref="C25">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Single Output 3"/>
@@ -901,7 +901,7 @@
       <tstamps>e8eeabd0-8514-48f8-8914-0557bc9288bc</tstamps>
     </comp>
     <comp ref="C26">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Single Output 4"/>
@@ -990,7 +990,7 @@
       <tstamps>e8eeabd0-8514-48f8-8914-0557bc9288bc</tstamps>
     </comp>
     <comp ref="C40">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Connectors"/>
@@ -1049,7 +1049,7 @@
       <tstamps>8654e494-2edd-4abf-bcdb-05b0c9a7ad92</tstamps>
     </comp>
     <comp ref="R55">
-      <value>4K7</value>
+      <value>4.7K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Sheetname" value="High Side Drivers"/>
@@ -1060,7 +1060,7 @@
       <tstamps>50aec336-9bc0-4de0-9481-47b5904b6323</tstamps>
     </comp>
     <comp ref="R56">
-      <value>4K7</value>
+      <value>4.7K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Sheetname" value="High Side Drivers"/>
@@ -1105,7 +1105,7 @@
       <tstamps>75e12395-2b8f-4fb0-a498-4325c784821f</tstamps>
     </comp>
     <comp ref="C34">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Single Output 1"/>
@@ -1194,7 +1194,7 @@
       <tstamps>75e12395-2b8f-4fb0-a498-4325c784821f</tstamps>
     </comp>
     <comp ref="C36">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Single Output 5"/>
@@ -1283,7 +1283,7 @@
       <tstamps>365e0488-5bae-44d3-b9a9-e0d6194530d8</tstamps>
     </comp>
     <comp ref="C39">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Dual Output 7-8"/>
@@ -1393,7 +1393,7 @@
       <tstamps>75e12395-2b8f-4fb0-a498-4325c784821f</tstamps>
     </comp>
     <comp ref="C37">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Single Output 6"/>
@@ -1482,7 +1482,7 @@
       <tstamps>bb05969b-ae1a-43c9-8850-9822e662f337</tstamps>
     </comp>
     <comp ref="C2">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="L9966"/>
@@ -1493,7 +1493,7 @@
       <tstamps>aa7733e7-6fa1-43fd-972a-672fdf14bbe6</tstamps>
     </comp>
     <comp ref="C3">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="L9966"/>
@@ -1515,7 +1515,7 @@
       <tstamps>e379f592-25eb-49a7-a8f6-e0f7755012a9</tstamps>
     </comp>
     <comp ref="C5">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="L9966"/>
@@ -1669,7 +1669,7 @@
       <tstamps>3de2f509-5aab-4b4f-8606-fe1711f390e5</tstamps>
     </comp>
     <comp ref="C41">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="L9966"/>
@@ -1823,7 +1823,7 @@
       <tstamps>77cb76c3-2a0a-40e6-9d83-4119b6b968f1</tstamps>
     </comp>
     <comp ref="C58">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Power Regulation"/>
@@ -1845,7 +1845,7 @@
       <tstamps>b56a1a78-0522-45a9-b889-ad0fac1967cf</tstamps>
     </comp>
     <comp ref="C60">
-      <value>100nF</value>
+      <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Sheetname" value="Power Regulation"/>
@@ -1878,7 +1878,7 @@
       <tstamps>294d0ed3-5695-4f7e-902d-6f02efc0bdcc</tstamps>
     </comp>
     <comp ref="R58">
-      <value>R_Small</value>
+      <value>10K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Sheetname" value="Power Regulation"/>
@@ -1889,7 +1889,7 @@
       <tstamps>66223837-91bb-40ba-bf7c-a48c08af8373</tstamps>
     </comp>
     <comp ref="R59">
-      <value>R_Small</value>
+      <value>10K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Sheetname" value="Power Regulation"/>
@@ -1900,7 +1900,7 @@
       <tstamps>7d7aab1e-9deb-41dd-8185-e65016ff7b22</tstamps>
     </comp>
     <comp ref="R60">
-      <value>R_Small</value>
+      <value>10K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Sheetname" value="Power Regulation"/>
@@ -1942,7 +1942,7 @@
       <tstamps>104aa829-edbd-4c90-9e07-eb6f8313d618</tstamps>
     </comp>
     <comp ref="U15">
-      <value>~</value>
+      <value>LMR50410Y5FQDBVRQ1</value>
       <footprint>Package_TO_SOT_SMD:SOT-23-6_Handsoldering</footprint>
       <libsource lib="MyLibrary" part="LMR50410Y5FQDBVRQ1_" description=""/>
       <property name="Sheetname" value="Power Regulation"/>
@@ -2114,6 +2114,24 @@
       <pins>
         <pin num="1" name="" type="passive"/>
         <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal_GND24_Small">
+      <description>Four pin crystal, GND on pins 2 and 4, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal_GND24_Small</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Device" part="Crystal_Small">
@@ -3020,6 +3038,8 @@
       <node ref="U8" pin="27" pinfunction="A1" pintype="input"/>
       <node ref="U8" pin="28" pinfunction="A2" pintype="input"/>
       <node ref="U8" pin="29" pinfunction="VSS" pintype="power_in"/>
+      <node ref="Y3" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Y3" pin="4" pinfunction="4" pintype="passive"/>
     </net>
     <net code="42" name="Ignition">
       <node ref="C60" pin="1" pintype="passive"/>
@@ -3326,12 +3346,12 @@
     <net code="111" name="Net-(U17-PF0)">
       <node ref="C19" pin="2" pintype="passive"/>
       <node ref="U17" pin="5" pinfunction="PF0" pintype="bidirectional"/>
-      <node ref="Y1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Y3" pin="1" pinfunction="1" pintype="passive"/>
     </net>
     <net code="112" name="Net-(U17-PF1)">
       <node ref="C18" pin="2" pintype="passive"/>
       <node ref="U17" pin="6" pinfunction="PF1" pintype="bidirectional"/>
-      <node ref="Y1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="Y3" pin="3" pinfunction="3" pintype="passive"/>
     </net>
     <net code="113" name="Net-(U17-VDDA)">
       <node ref="FB1" pin="2" pintype="passive"/>

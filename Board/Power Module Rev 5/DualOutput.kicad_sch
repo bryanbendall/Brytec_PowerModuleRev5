@@ -997,7 +997,7 @@
     (property "Reference" "C34" (at 157.48 61.6013 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100nF" (at 157.48 64.1413 0)
+    (property "Value" "0.1uF" (at 157.48 64.1413 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 154.94 62.23 0)
