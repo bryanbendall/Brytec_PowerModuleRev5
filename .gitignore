@@ -56,3 +56,7 @@
 # Board
 *.zip
 *.kicad_pcb-bak
+
+# Build Files
+Firmware/build/*
+Firmware/.vscode/*
