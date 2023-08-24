@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "cppMain.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,7 +96,7 @@ int main(void)
   MX_FDCAN2_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-
+  cppMain();
   /* USER CODE END 2 */
 
   /* Infinite loop */

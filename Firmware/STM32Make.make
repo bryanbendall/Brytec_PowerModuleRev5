@@ -75,6 +75,7 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.c
 
 
 CPP_SOURCES = \
+App/cppMain.cpp
 
 
 # ASM sources
@@ -143,6 +144,7 @@ AS_INCLUDES = \
 
 # C includes
 C_INCLUDES =  \
+-IApp \
 -ICore/Inc \
 -IDrivers/CMSIS/Device/ST/STM32G4xx/Include \
 -IDrivers/CMSIS/Include \
@@ -166,7 +168,7 @@ endif
 # Add additional flags
 CFLAGS += -Wall -fdata-sections -ffunction-sections 
 ASFLAGS += -Wall -fdata-sections -ffunction-sections 
-CXXFLAGS += 
+CXXFLAGS += --specs=nano.specs -Wall -fdata-sections -ffunction-sections -fno-exceptions -fno-rtti -fno-threadsafe-statics -std=gnu++17 
 
 # Generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
@@ -184,7 +186,7 @@ LIBDIR = \
 
 
 # Additional LD Flags from config file
-ADDITIONALLDFLAGS = -specs=nano.specs 
+ADDITIONALLDFLAGS = -Wl,--print-memory-usage -specs=nano.specs 
 
 LDFLAGS = $(MCU) $(ADDITIONALLDFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
