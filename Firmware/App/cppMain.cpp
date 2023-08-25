@@ -1,27 +1,27 @@
 #include "cppMain.h"
 
-// #include "CanBus.h"
-// #include "EBrytecApp.h"
-// #include "Usb.h"
+#include "CanBus.h"
+#include "EBrytecApp.h"
+#include "Usb.h"
 #include "gpio.h"
 #include "stm32g4xx_hal.h"
 // #include "usart.h"
-// #include "usbd_cdc_if.h"
+#include "usbd_cdc_if.h"
 
 #include <stdint.h>
 
-// static uint64_t lastMillis = 0;
+static uint64_t lastMillis = 0;
 
 void cppMain()
 {
-    // Brytec::EBrytecApp::initalize();
+    Brytec::EBrytecApp::initalize();
 
     // if (Brytec::EBrytecApp::isDeserializeOk())
     //     printf("Des succ");
     // else
     //     printf("Des fail");
 
-    // CanBus::start();
+    CanBus::start();
 
     while (1) {
 
@@ -32,18 +32,18 @@ void cppMain()
             HAL_GPIO_TogglePin(User_Led_GPIO_Port, User_Led_Pin);
         }
 
-        // Usb::update();
+        Usb::update();
 
         // HAL_Delay(1);
 
         // Brytec //////////////////////////////
-        // uint64_t difference = HAL_GetTick() - lastMillis;
-        // if (difference > 1) {
-        //     float timestep = ((float)difference * 0.001f);
-        //     lastMillis = HAL_GetTick();
+        uint64_t difference = HAL_GetTick() - lastMillis;
+        if (difference > 1) {
+            float timestep = ((float)difference * 0.001f);
+            lastMillis = HAL_GetTick();
 
-        //     Brytec::EBrytecApp::update(timestep);
-        // }
+            Brytec::EBrytecApp::update(timestep);
+        }
         /////////////////////////////////////////
     }
 }

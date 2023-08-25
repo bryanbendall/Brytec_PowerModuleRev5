@@ -45,7 +45,6 @@ Core/Src/spi.c \
 Core/Src/stm32g4xx_hal_msp.c \
 Core/Src/stm32g4xx_it.c \
 Core/Src/system_stm32g4xx.c \
-Core/Src/usb.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c \
@@ -71,11 +70,60 @@ Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.c
+Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.c \
+Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c \
+USB_Device/App/usb_device.c \
+USB_Device/App/usbd_cdc_if.c \
+USB_Device/App/usbd_desc.c \
+USB_Device/Target/usbd_conf.c
 
 
 CPP_SOURCES = \
-App/cppMain.cpp
+App/CanBus.cpp \
+App/NucleoBoard.cpp \
+App/Usb.cpp \
+App/cppMain.cpp \
+BrytecConfigEmbedded/Can/EBrytecCan.cpp \
+BrytecConfigEmbedded/Can/ECanCommandQueue.cpp \
+BrytecConfigEmbedded/Can/EPinStatusQueue.cpp \
+BrytecConfigEmbedded/Deserializer/BinaryArrayDeserializer.cpp \
+BrytecConfigEmbedded/Deserializer/BinaryAvrEepromDeserializer.cpp \
+BrytecConfigEmbedded/Deserializer/BinaryBufferSerializer.cpp \
+BrytecConfigEmbedded/Deserializer/BinaryPathDeserializer.cpp \
+BrytecConfigEmbedded/Deserializer/BinaryProgmemDeserializer.cpp \
+BrytecConfigEmbedded/EBrytecApp.cpp \
+BrytecConfigEmbedded/ENode.cpp \
+BrytecConfigEmbedded/IOTypes.cpp \
+BrytecConfigEmbedded/Nodes/EAndNode.cpp \
+BrytecConfigEmbedded/Nodes/ECanBusNode.cpp \
+BrytecConfigEmbedded/Nodes/ECompareNode.cpp \
+BrytecConfigEmbedded/Nodes/EConvertNode.cpp \
+BrytecConfigEmbedded/Nodes/ECounterNode.cpp \
+BrytecConfigEmbedded/Nodes/ECurveNode.cpp \
+BrytecConfigEmbedded/Nodes/EDelayNode.cpp \
+BrytecConfigEmbedded/Nodes/EFinalValueNode.cpp \
+BrytecConfigEmbedded/Nodes/EInitialValueNode.cpp \
+BrytecConfigEmbedded/Nodes/EInvertNode.cpp \
+BrytecConfigEmbedded/Nodes/EMapValueNode.cpp \
+BrytecConfigEmbedded/Nodes/EMathNode.cpp \
+BrytecConfigEmbedded/Nodes/ENodeGroupNode.cpp \
+BrytecConfigEmbedded/Nodes/EOnOffNode.cpp \
+BrytecConfigEmbedded/Nodes/EOrNode.cpp \
+BrytecConfigEmbedded/Nodes/EPIDNode.cpp \
+BrytecConfigEmbedded/Nodes/EPinCurrentNode.cpp \
+BrytecConfigEmbedded/Nodes/EPushButtonNode.cpp \
+BrytecConfigEmbedded/Nodes/ESwitchNode.cpp \
+BrytecConfigEmbedded/Nodes/EToggleNode.cpp \
+BrytecConfigEmbedded/Nodes/ETwoStageNode.cpp \
+BrytecConfigEmbedded/Nodes/EValueNode.cpp \
+BrytecConfigEmbedded/Usb/UsbBuffer.cpp \
+BrytecConfigEmbedded/Usb/UsbDefs.cpp \
+BrytecConfigEmbedded/Utils/ENodeDeserializer.cpp \
+BrytecConfigEmbedded/Utils/ENodeGroup.cpp \
+BrytecConfigEmbedded/Utils/PlacementNew.cpp
 
 
 # ASM sources
@@ -145,11 +193,22 @@ AS_INCLUDES = \
 # C includes
 C_INCLUDES =  \
 -IApp \
+-IBrytecConfigEmbedded \
+-IBrytecConfigEmbedded/Boards \
+-IBrytecConfigEmbedded/Can \
+-IBrytecConfigEmbedded/Deserializer \
+-IBrytecConfigEmbedded/Nodes \
+-IBrytecConfigEmbedded/Usb \
+-IBrytecConfigEmbedded/Utils \
 -ICore/Inc \
 -IDrivers/CMSIS/Device/ST/STM32G4xx/Include \
 -IDrivers/CMSIS/Include \
 -IDrivers/STM32G4xx_HAL_Driver/Inc \
--IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy
+-IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy \
+-IMiddlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc \
+-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc \
+-IUSB_Device/App \
+-IUSB_Device/Target
 
 
 
