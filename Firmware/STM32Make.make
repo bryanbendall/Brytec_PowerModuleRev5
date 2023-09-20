@@ -82,9 +82,7 @@ USB_Device/Target/usbd_conf.c
 
 
 CPP_SOURCES = \
-App/CanBus.cpp \
 App/PowerModuleRev5Board.cpp \
-App/Usb.cpp \
 App/cppMain.cpp \
 BrytecConfigEmbedded/Can/EBrytecCan.cpp \
 BrytecConfigEmbedded/Can/ECanCommandQueue.cpp \
@@ -124,7 +122,9 @@ BrytecConfigEmbedded/Usb/UsbBuffer.cpp \
 BrytecConfigEmbedded/Usb/UsbDefs.cpp \
 BrytecConfigEmbedded/Utils/ENodeDeserializer.cpp \
 BrytecConfigEmbedded/Utils/ENodeGroup.cpp \
-BrytecConfigEmbedded/Utils/PlacementNew.cpp
+BrytecConfigEmbedded/Utils/PlacementNew.cpp \
+Stm32Files/CanBus.cpp \
+Stm32Files/Usb.cpp
 
 
 # ASM sources
@@ -208,6 +208,7 @@ C_INCLUDES =  \
 -IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy \
 -IMiddlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc \
 -IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc \
+-IStm32Files \
 -IUSB_Device/App \
 -IUSB_Device/Target
 

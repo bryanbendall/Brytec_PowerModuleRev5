@@ -90,6 +90,7 @@ includeDirectories:
   - Core/Lib/**
   - App/**
   - BrytecConfigEmbedded/**
+  - Stm32Files/**
 
 
 # Files that should be included in the compilation.
@@ -103,6 +104,7 @@ sourceFiles:
   - Core/Lib/**
   - App/**
   - BrytecConfigEmbedded/**
+  - Stm32Files/**
 
 
 # When no makefile is present it will show a warning pop-up.
