@@ -1,4 +1,4 @@
-22263596990370587
+22265290235371379
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -63090,6 +63090,13 @@ Infineon TSDSO 14-22
 0
 54
 15
+MyKiCadLibraries
+Infineon_TSDSO-24
+
+
+0
+25
+25
 MyKiCadLibraries
 PQFN16
 
