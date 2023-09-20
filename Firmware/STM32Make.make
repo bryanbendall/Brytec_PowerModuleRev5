@@ -83,7 +83,7 @@ USB_Device/Target/usbd_conf.c
 
 CPP_SOURCES = \
 App/CanBus.cpp \
-App/NucleoBoard.cpp \
+App/PowerModuleRev5Board.cpp \
 App/Usb.cpp \
 App/cppMain.cpp \
 BrytecConfigEmbedded/Can/EBrytecCan.cpp \
@@ -99,6 +99,7 @@ BrytecConfigEmbedded/ENode.cpp \
 BrytecConfigEmbedded/IOTypes.cpp \
 BrytecConfigEmbedded/Nodes/EAndNode.cpp \
 BrytecConfigEmbedded/Nodes/ECanBusNode.cpp \
+BrytecConfigEmbedded/Nodes/EColorNode.cpp \
 BrytecConfigEmbedded/Nodes/ECompareNode.cpp \
 BrytecConfigEmbedded/Nodes/EConvertNode.cpp \
 BrytecConfigEmbedded/Nodes/ECounterNode.cpp \

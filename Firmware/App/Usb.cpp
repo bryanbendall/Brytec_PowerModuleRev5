@@ -9,6 +9,24 @@
 
 static Brytec::UsbBuffer s_sendBuffer;
 
+extern "C" int _write(int file, char* ptr, int len)
+{
+    if (len == 0)
+        return -1;
+
+    if (len > Brytec::UsbPacket::bufferSize - 1)
+        len = Brytec::UsbPacket::bufferSize - 1;
+
+    Brytec::UsbPacket packet;
+    packet.data[0] = (uint8_t)Brytec::UsbPacketType::DebugPrint;
+    memcpy(&packet.data[1], ptr, len);
+    packet.length = len + 1;
+
+    s_sendBuffer.add(packet);
+
+    return len;
+}
+
 void Usb::send(Brytec::CanExtFrame& frame)
 {
     Brytec::UsbPacket packet;
@@ -35,7 +53,7 @@ void Usb::update()
             Brytec::UsbPacket sendPacket = s_sendBuffer.get();
             rawSend[0] = Brytec::PacketStart;
             rawSend[1] = sendPacket.length;
-            memcpy(&rawSend[2], sendPacket.data, sendPacket.length + 2);
+            memcpy(&rawSend[2], sendPacket.data, sendPacket.length);
             USBD_CDC_SetTxBuffer(&hUsbDeviceFS, rawSend, sendPacket.length + 2);
             USBD_CDC_TransmitPacket(&hUsbDeviceFS);
         }
@@ -45,8 +63,7 @@ void Usb::update()
     {
         static uint8_t rxBuffer[APP_RX_DATA_SIZE];
 
-        // uint32_t dataLength = vcp_recv(rxBuffer, APP_RX_DATA_SIZE);
-        uint32_t dataLength = 0;
+        uint32_t dataLength = vcp_recv(rxBuffer, APP_RX_DATA_SIZE);
 
         uint32_t i = 0;
         while (i < dataLength) {

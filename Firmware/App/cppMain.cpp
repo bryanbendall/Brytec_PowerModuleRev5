@@ -5,12 +5,13 @@
 #include "Usb.h"
 #include "gpio.h"
 #include "stm32g4xx_hal.h"
-// #include "usart.h"
 #include "usbd_cdc_if.h"
 
 #include <stdint.h>
 
 static uint64_t lastMillis = 0;
+
+// static uint32_t tickDelay = 2000;
 
 void cppMain()
 {
@@ -25,12 +26,12 @@ void cppMain()
 
     while (1) {
 
-        static uint32_t tick = 0;
-
-        if (HAL_GetTick() != tick && HAL_GetTick() % 100 == 0) {
-            tick = HAL_GetTick();
-            HAL_GPIO_TogglePin(User_Led_GPIO_Port, User_Led_Pin);
-        }
+        // static uint32_t tick = 0;
+        // if (HAL_GetTick() != tick && HAL_GetTick() % tickDelay == 0) {
+        //     tick = HAL_GetTick();
+        //     HAL_GPIO_TogglePin(User_Led_GPIO_Port, User_Led_Pin);
+        //     printf("toggle led\n");
+        // }
 
         Usb::update();
 

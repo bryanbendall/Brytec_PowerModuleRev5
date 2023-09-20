@@ -2,7 +2,7 @@
 
 #include "CanBus.h"
 #include "Deserializer/BinaryArrayDeserializer.h"
-#include "NucleoBoardDefs.h"
+#include "PowerModuleRev5Defs.h"
 #include "Usb.h"
 #include "gpio.h"
 #include <stdio.h>
@@ -95,6 +95,7 @@ void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
     switch (index) {
     case BT_PIN_Onboard_LED:
         HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, (GPIO_PinState)state);
+        // printf("turning led %i\n", state);
         break;
 
     default:
