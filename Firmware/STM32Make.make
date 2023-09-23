@@ -124,6 +124,8 @@ BrytecConfigEmbedded/Utils/ENodeDeserializer.cpp \
 BrytecConfigEmbedded/Utils/ENodeGroup.cpp \
 BrytecConfigEmbedded/Utils/PlacementNew.cpp \
 Stm32Files/CanBus.cpp \
+Stm32Files/Fram.cpp \
+Stm32Files/FramDeserializer.cpp \
 Stm32Files/Usb.cpp
 
 

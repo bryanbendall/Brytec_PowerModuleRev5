@@ -52,19 +52,26 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, CanSilent_Pin|SPI1_SS_Memory_Pin|Dsel7_8_Pin|SPI1_SS_L9966_Pin
-                          |L6699_Rst_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, CanSilent_Pin|Dsel7_8_Pin|L6699_Rst_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, Memory_Hold_Pin|Den7_8_Pin|Den5_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(Memory_Hold_GPIO_Port, Memory_Hold_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, Memory_Wp_Pin|User_Led_Pin|Den2_Pin|L6699_Sync_Pin
-                          |Pwm_Ctr_Enable_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, Memory_SS_Pin|SPI1_SS_L9966_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(Memory_Wp_GPIO_Port, Memory_Wp_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, User_Led_Pin|Den2_Pin|L6699_Sync_Pin|Pwm_Ctr_Enable_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, Den7_8_Pin|Den5_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PCPin PCPin PCPin PCPin
                            PCPin */
-  GPIO_InitStruct.Pin = CanSilent_Pin|SPI1_SS_Memory_Pin|Dsel7_8_Pin|SPI1_SS_L9966_Pin
+  GPIO_InitStruct.Pin = CanSilent_Pin|Memory_SS_Pin|Dsel7_8_Pin|SPI1_SS_L9966_Pin
                           |L6699_Rst_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;

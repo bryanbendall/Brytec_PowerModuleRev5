@@ -9,33 +9,24 @@
 
 #include <stdint.h>
 
-static uint64_t lastMillis = 0;
+#include "Fram.h"
 
-// static uint32_t tickDelay = 2000;
+static uint64_t lastMillis = 0;
 
 void cppMain()
 {
     Brytec::EBrytecApp::initalize();
 
-    // if (Brytec::EBrytecApp::isDeserializeOk())
-    //     printf("Des succ");
-    // else
-    //     printf("Des fail");
+    if (Brytec::EBrytecApp::isDeserializeOk())
+        printf("Deserialize Ok\n");
+    else
+        printf("Deserialize FAIL\n");
 
     CanBus::start();
 
     while (1) {
 
-        // static uint32_t tick = 0;
-        // if (HAL_GetTick() != tick && HAL_GetTick() % tickDelay == 0) {
-        //     tick = HAL_GetTick();
-        //     HAL_GPIO_TogglePin(User_Led_GPIO_Port, User_Led_Pin);
-        //     printf("toggle led\n");
-        // }
-
         Usb::update();
-
-        // HAL_Delay(1);
 
         // Brytec //////////////////////////////
         uint64_t difference = HAL_GetTick() - lastMillis;

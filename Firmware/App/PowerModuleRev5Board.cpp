@@ -1,25 +1,20 @@
 #include "BrytecBoard.h"
 
 #include "CanBus.h"
-#include "Deserializer/BinaryArrayDeserializer.h"
+#include "Fram.h"
+#include "FramDeserializer.h"
 #include "PowerModuleRev5Defs.h"
 #include "Usb.h"
 #include "gpio.h"
 #include <stdio.h>
-#include <string.h>
-
-#define PROGMEM
-#include "Program.h"
 
 namespace Brytec {
 
-Brytec::BinaryArrayDeserializer deserializer(nullptr, 0);
-uint8_t* s_configData = (uint8_t*)progmem_data;
-uint32_t s_dataSize = sizeof(progmem_data);
+FramDeserializer deserializer;
 
 BinaryDeserializer* BrytecBoard::getDeserializer()
 {
-    BinaryArrayDeserializer des(s_configData, s_dataSize);
+    FramDeserializer des;
     deserializer = des;
     return &deserializer;
 }
@@ -28,35 +23,35 @@ void BrytecBoard::error(EBrytecErrors error)
 {
     switch (error) {
     case EBrytecErrors::ModuleHeader:
-        printf("Module header is wrong");
+        printf("Module header is wrong\n");
         break;
     case EBrytecErrors::NodeGroupHeader:
-        printf("Node Group header is wrong");
+        printf("Node Group header is wrong\n");
         break;
     case EBrytecErrors::ModuleNotEnabled:
-        printf("This module is not enabled");
+        printf("This module is not enabled\n");
         break;
     case EBrytecErrors::AddNodeFailed:
-        printf("Failed to add node");
+        printf("Failed to add node\n");
         break;
     case EBrytecErrors::NodeVectorOutOfSpace:
-        printf("Node Vector out of space");
+        printf("Node Vector out of space\n");
         break;
     case EBrytecErrors::FailedToCreateNode:
-        printf("Failed to create node");
+        printf("Failed to create node\n");
         break;
     case EBrytecErrors::NodeIndexOutOfBounds:
-        printf("Node index out of bounds");
+        printf("Node index out of bounds\n");
         break;
     case EBrytecErrors::BadAlloc:
-        printf("Node group allocation failed");
+        printf("Node group allocation failed\n");
         break;
     case EBrytecErrors::CanBufferFull:
-        printf("Can Buffer Full");
+        printf("Can Buffer Full\n");
         break;
 
     default:
-        printf("Unknown Error");
+        printf("Unknown Error\n");
         break;
     }
 }
@@ -71,6 +66,8 @@ void BrytecBoard::setupPin(uint16_t index, IOTypes::Types type)
 
 void BrytecBoard::shutdownAllPins()
 {
+    // BT_PIN_Onboard_LED
+    HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, GPIO_PIN_RESET);
 }
 
 float BrytecBoard::getPinValue(uint16_t index)
@@ -111,19 +108,13 @@ void BrytecBoard::sendBrytecCan(CanExtFrame frame)
 
 void BrytecBoard::ReserveConfigSize(uint16_t size)
 {
-    static bool progmem = true;
-    if (!progmem) {
-        free(s_configData);
-    }
-    progmem = false;
-    // add extra 8 in case there is not a full packet
-    s_dataSize = size;
-    s_configData = (uint8_t*)malloc(size + 8);
+    Fram::write(0, (uint8_t*)&size, 2);
 }
 
 void BrytecBoard::updateConfig(uint8_t* data, uint32_t size, uint32_t offset)
 {
-    memcpy(s_configData + offset, data, size);
+    // Add room for storing the size
+    Fram::write(offset + 2, data, size);
 }
 
 uint32_t BrytecBoard::getTemplateSize()
@@ -141,14 +132,13 @@ void BrytecBoard::getTemplateData(uint8_t* dest, uint32_t offset, uint32_t lengt
 
 uint32_t BrytecBoard::getConfigSize()
 {
-    return s_dataSize;
+    uint16_t dataSize;
+    Fram::read(0, (uint8_t*)&dataSize, 2);
+    return dataSize;
 }
 
 void BrytecBoard::getConfigData(uint8_t* dest, uint32_t offset, uint32_t length)
 {
-    if (offset > s_dataSize)
-        return;
-
-    memcpy(dest, &s_configData[offset], length);
+    Fram::read(offset + 2, dest, length);
 }
 }

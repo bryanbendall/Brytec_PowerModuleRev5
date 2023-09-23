@@ -71,8 +71,8 @@ void Error_Handler(void);
 #define Is6_GPIO_Port GPIOA
 #define Memory_Hold_Pin GPIO_PIN_4
 #define Memory_Hold_GPIO_Port GPIOA
-#define SPI1_SS_Memory_Pin GPIO_PIN_4
-#define SPI1_SS_Memory_GPIO_Port GPIOC
+#define Memory_SS_Pin GPIO_PIN_4
+#define Memory_SS_GPIO_Port GPIOC
 #define Memory_Wp_Pin GPIO_PIN_0
 #define Memory_Wp_GPIO_Port GPIOB
 #define Is7_8_Pin GPIO_PIN_1
