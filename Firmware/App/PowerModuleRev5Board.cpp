@@ -4,11 +4,21 @@
 #include "Fram.h"
 #include "FramDeserializer.h"
 #include "PowerModuleRev5Defs.h"
+#include "PowerOutput.h"
+#include "PwmDriverOutput.h"
+#include "Stm32Output.h"
 #include "Usb.h"
 #include "gpio.h"
 #include <stdio.h>
 
 namespace Brytec {
+
+using output1 = PowerOutput<PwmDriverOutput<5>, PwmDriverOutput<4>>;
+using output2 = PowerOutput<PwmDriverOutput<2>, Stm32Output<GPIOB_BASE, Den2_Pin>>;
+using output3 = PowerOutput<PwmDriverOutput<9>, PwmDriverOutput<8>>;
+using output4 = PowerOutput<PwmDriverOutput<11>, PwmDriverOutput<10>>;
+using output5 = PowerOutput<PwmDriverOutput<3>, Stm32Output<GPIOA_BASE, Den5_Pin>>;
+using output6 = PowerOutput<PwmDriverOutput<7>, PwmDriverOutput<6>>;
 
 FramDeserializer deserializer;
 
@@ -68,6 +78,7 @@ void BrytecBoard::shutdownAllPins()
 {
     // BT_PIN_Onboard_LED
     HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, GPIO_PIN_RESET);
+    output1::setValue(0.0f);
 }
 
 float BrytecBoard::getPinValue(uint16_t index)
@@ -93,6 +104,11 @@ void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
     case BT_PIN_Onboard_LED:
         HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, (GPIO_PinState)state);
         // printf("turning led %i\n", state);
+
+        output1::setValue(value);
+
+        // printf("setting value to - %f\n", value);
+
         break;
 
     default:

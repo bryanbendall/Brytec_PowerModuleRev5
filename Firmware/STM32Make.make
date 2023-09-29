@@ -126,6 +126,7 @@ BrytecConfigEmbedded/Utils/PlacementNew.cpp \
 Stm32Files/CanBus.cpp \
 Stm32Files/Fram.cpp \
 Stm32Files/FramDeserializer.cpp \
+Stm32Files/PwmDriver.cpp \
 Stm32Files/Usb.cpp
 
 
@@ -249,7 +250,7 @@ LIBDIR = \
 
 
 # Additional LD Flags from config file
-ADDITIONALLDFLAGS = -Wl,--print-memory-usage -specs=nano.specs 
+ADDITIONALLDFLAGS = -Wl,--print-memory-usage -specs=nano.specs -u _printf_float 
 
 LDFLAGS = $(MCU) $(ADDITIONALLDFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
