@@ -19,5 +19,10 @@ public:
         In::setPwm(value);
     }
 
+    static void setDiagnostics(bool state)
+    {
+        Den::setState(state);
+    }
+
     PowerOutput() = delete;
 };

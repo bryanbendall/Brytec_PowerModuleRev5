@@ -8,6 +8,7 @@
 #include "PwmDriverOutput.h"
 #include "Stm32Output.h"
 #include "Usb.h"
+#include "adc.h"
 #include "gpio.h"
 #include <stdio.h>
 
@@ -72,13 +73,48 @@ void BrytecBoard::setupBrytecCan(uint32_t mask, uint32_t filter)
 
 void BrytecBoard::setupPin(uint16_t index, IOTypes::Types type)
 {
+    if (type == IOTypes::Types::Output_Batt) {
+        switch (index) {
+        case BT_PIN_Pin_1_and_8:
+            output3::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_2_and_9:
+            output6::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_6_and_12:
+            output1::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_7_and_13:
+            output5::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_14_and_15:
+            output4::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_18_and_19:
+            output2::setDiagnostics(true);
+            break;
+
+        default:
+            break;
+        }
+    }
 }
 
 void BrytecBoard::shutdownAllPins()
 {
-    // BT_PIN_Onboard_LED
     HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, GPIO_PIN_RESET);
     output1::setValue(0.0f);
+    output2::setValue(0.0f);
+    output3::setValue(0.0f);
+    output4::setValue(0.0f);
+    output5::setValue(0.0f);
+    output6::setValue(0.0f);
+    output1::setDiagnostics(false);
+    output2::setDiagnostics(false);
+    output3::setDiagnostics(false);
+    output4::setDiagnostics(false);
+    output5::setDiagnostics(false);
+    output6::setDiagnostics(false);
 }
 
 float BrytecBoard::getPinValue(uint16_t index)
@@ -88,31 +124,58 @@ float BrytecBoard::getPinValue(uint16_t index)
 
 float BrytecBoard::getPinVoltage(uint16_t index)
 {
+
     return 0.0f;
 }
 
 float BrytecBoard::getPinCurrent(uint16_t index)
 {
+
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    uint32_t conversion = HAL_ADC_GetValue(&hadc1);
+    // HAL_ADC_Stop(&hadc1);
+
+    float U1_IS_Voltage = (float)conversion / 4096.0f * 3.3f;
+    const int kilis = 22700; // typical kilis for the BTS7002
+    // const int kilis = 14500; // typical kilis for the BTS7008
+    float U1_IS_Ampere = float((U1_IS_Voltage * kilis) / 1200);
+    return U1_IS_Ampere;
+
     return 0.0f;
 }
 
 void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
 {
-    bool state = value > 0.001f;
+    if (index == BT_PIN_Onboard_LED) {
+        HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, (GPIO_PinState)(value > 0.001f));
+        return;
+    }
 
-    switch (index) {
-    case BT_PIN_Onboard_LED:
-        HAL_GPIO_WritePin(User_Led_GPIO_Port, User_Led_Pin, (GPIO_PinState)state);
-        // printf("turning led %i\n", state);
+    if (type == IOTypes::Types::Output_Batt) {
+        switch (index) {
+        case BT_PIN_Pin_1_and_8:
+            output3::setValue(value);
+            break;
+        case BT_PIN_Pin_2_and_9:
+            output6::setValue(value);
+            break;
+        case BT_PIN_Pin_6_and_12:
+            output1::setValue(value);
+            break;
+        case BT_PIN_Pin_7_and_13:
+            output5::setValue(value);
+            break;
+        case BT_PIN_Pin_14_and_15:
+            output4::setValue(value);
+            break;
+        case BT_PIN_Pin_18_and_19:
+            output2::setValue(value);
+            break;
 
-        output1::setValue(value);
-
-        // printf("setting value to - %f\n", value);
-
-        break;
-
-    default:
-        break;
+        default:
+            break;
+        }
     }
 }
 
