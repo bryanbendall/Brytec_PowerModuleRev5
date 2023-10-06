@@ -12,6 +12,16 @@
 #include "gpio.h"
 #include <stdio.h>
 
+extern volatile uint16_t adcConv[8];
+#define ADCIN_1 adcConv[0]
+#define ADCIN_2 adcConv[1]
+#define ADCIN_3 adcConv[2]
+#define ADCIN_4 adcConv[3]
+#define ADCIN_5 adcConv[4]
+#define ADCIN_11 adcConv[5]
+#define ADCIN_12 adcConv[6]
+#define ADCIN_14 adcConv[7]
+
 namespace Brytec {
 
 using output1 = PowerOutput<PwmDriverOutput<5>, PwmDriverOutput<4>>;
@@ -124,25 +134,43 @@ float BrytecBoard::getPinValue(uint16_t index)
 
 float BrytecBoard::getPinVoltage(uint16_t index)
 {
+    uint32_t conversion = 0;
 
-    return 0.0f;
+    switch (index) {
+    case BT_PIN_Pin_1_and_8:
+        conversion = ADCIN_3;
+        break;
+    case BT_PIN_Pin_2_and_9:
+        conversion = ADCIN_4;
+        break;
+    case BT_PIN_Pin_6_and_12:
+        conversion = ADCIN_5;
+        break;
+    case BT_PIN_Pin_7_and_13:
+        conversion = ADCIN_11;
+        break;
+    case BT_PIN_Pin_14_and_15:
+        conversion = ADCIN_2;
+        break;
+    case BT_PIN_Pin_18_and_19:
+        conversion = ADCIN_14;
+        break;
+
+    default:
+        break;
+    }
+
+    return (float)conversion
+        / 4095.0f * 3.3f;
 }
 
 float BrytecBoard::getPinCurrent(uint16_t index)
 {
+    const float kilis = 22700.0f; // typical kilis for the BTS7002
+    // const int kilis = 5400; // typical kilis for the BTS7008-2
+    float calcAmps = (getPinVoltage(index) * kilis) / 1200.0f;
 
-    HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-    uint32_t conversion = HAL_ADC_GetValue(&hadc1);
-    // HAL_ADC_Stop(&hadc1);
-
-    float U1_IS_Voltage = (float)conversion / 4096.0f * 3.3f;
-    const int kilis = 22700; // typical kilis for the BTS7002
-    // const int kilis = 14500; // typical kilis for the BTS7008
-    float U1_IS_Ampere = float((U1_IS_Voltage * kilis) / 1200);
-    return U1_IS_Ampere;
-
-    return 0.0f;
+    return calcAmps;
 }
 
 void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
