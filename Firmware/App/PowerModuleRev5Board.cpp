@@ -12,24 +12,33 @@
 #include "gpio.h"
 #include <stdio.h>
 
-extern volatile uint16_t adcConv[8];
-#define ADCIN_1 adcConv[0]
-#define ADCIN_2 adcConv[1]
-#define ADCIN_3 adcConv[2]
-#define ADCIN_4 adcConv[3]
-#define ADCIN_5 adcConv[4]
-#define ADCIN_11 adcConv[5]
-#define ADCIN_12 adcConv[6]
+extern volatile uint16_t adcConv[10];
+#define ADCIN_2 adcConv[0]
+#define ADCIN_3 adcConv[1]
+#define ADCIN_4 adcConv[2]
+#define ADCIN_1 adcConv[3]
+#define ADCIN_12 adcConv[4]
+#define ADCIN_5 adcConv[5]
+#define ADCIN_11 adcConv[6]
 #define ADCIN_14 adcConv[7]
+#define ADCIN_1x2 adcConv[8]
+#define ADCIN_12x2 adcConv[9]
 
 namespace Brytec {
 
+// Single outputs
 using output1 = PowerOutput<PwmDriverOutput<5>, PwmDriverOutput<4>>;
 using output2 = PowerOutput<PwmDriverOutput<2>, Stm32Output<GPIOB_BASE, Den2_Pin>>;
 using output3 = PowerOutput<PwmDriverOutput<9>, PwmDriverOutput<8>>;
 using output4 = PowerOutput<PwmDriverOutput<11>, PwmDriverOutput<10>>;
 using output5 = PowerOutput<PwmDriverOutput<3>, Stm32Output<GPIOA_BASE, Den5_Pin>>;
 using output6 = PowerOutput<PwmDriverOutput<7>, PwmDriverOutput<6>>;
+
+// Dual outputs
+using output7 = PowerOutput<PwmDriverOutput<1>, Stm32Output<GPIOC_BASE, Den7_8_Pin>>;
+using output8 = PowerOutput<PwmDriverOutput<0>, Stm32Output<GPIOC_BASE, Den7_8_Pin>>;
+using output9 = PowerOutput<PwmDriverOutput<15>, PwmDriverOutput<14>>;
+using output10 = PowerOutput<PwmDriverOutput<12>, PwmDriverOutput<14>>;
 
 FramDeserializer deserializer;
 
@@ -103,6 +112,18 @@ void BrytecBoard::setupPin(uint16_t index, IOTypes::Types type)
         case BT_PIN_Pin_18_and_19:
             output2::setDiagnostics(true);
             break;
+        case BT_PIN_Pin_20:
+            output10::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_21:
+            output9::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_25:
+            output8::setDiagnostics(true);
+            break;
+        case BT_PIN_Pin_26:
+            output7::setDiagnostics(true);
+            break;
 
         default:
             break;
@@ -119,12 +140,20 @@ void BrytecBoard::shutdownAllPins()
     output4::setValue(0.0f);
     output5::setValue(0.0f);
     output6::setValue(0.0f);
+    output7::setValue(0.0f);
+    output8::setValue(0.0f);
+    output9::setValue(0.0f);
+    output10::setValue(0.0f);
     output1::setDiagnostics(false);
     output2::setDiagnostics(false);
     output3::setDiagnostics(false);
     output4::setDiagnostics(false);
     output5::setDiagnostics(false);
     output6::setDiagnostics(false);
+    output7::setDiagnostics(false);
+    output8::setDiagnostics(false);
+    output9::setDiagnostics(false);
+    output10::setDiagnostics(false);
 }
 
 float BrytecBoard::getPinValue(uint16_t index)
@@ -132,7 +161,7 @@ float BrytecBoard::getPinValue(uint16_t index)
     return 0.0f;
 }
 
-float BrytecBoard::getPinVoltage(uint16_t index)
+float getAdcVoltage(uint16_t index)
 {
     uint32_t conversion = 0;
 
@@ -155,21 +184,39 @@ float BrytecBoard::getPinVoltage(uint16_t index)
     case BT_PIN_Pin_18_and_19:
         conversion = ADCIN_14;
         break;
+    case BT_PIN_Pin_20:
+        conversion = ADCIN_1x2;
+        break;
+    case BT_PIN_Pin_21:
+        conversion = ADCIN_1;
+        break;
+    case BT_PIN_Pin_25:
+        conversion = ADCIN_12x2;
+        break;
+    case BT_PIN_Pin_26:
+        conversion = ADCIN_12;
+        break;
 
     default:
         break;
     }
 
-    return (float)conversion
-        / 4095.0f * 3.3f;
+    return (float)conversion / 4095.0f * 3.3f;
+}
+
+float BrytecBoard::getPinVoltage(uint16_t index)
+{
+    return getAdcVoltage(index);
 }
 
 float BrytecBoard::getPinCurrent(uint16_t index)
 {
-    const float kilis = 22700.0f; // typical kilis for the BTS7002
-    // const int kilis = 5400; // typical kilis for the BTS7008-2
-    float calcAmps = (getPinVoltage(index) * kilis) / 1200.0f;
+    float kilis = 22700.0f; // typical kilis for the BTS7002
 
+    if (index == BT_PIN_Pin_20 || index == BT_PIN_Pin_21 || index == BT_PIN_Pin_25 || index == BT_PIN_Pin_26)
+        kilis = 5400.0f; // typical kilis for the BTS7008-2
+
+    float calcAmps = (getAdcVoltage(index) * kilis) / 1200.0f;
     return calcAmps;
 }
 
@@ -199,6 +246,18 @@ void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
             break;
         case BT_PIN_Pin_18_and_19:
             output2::setValue(value);
+            break;
+        case BT_PIN_Pin_20:
+            output10::setValue(value);
+            break;
+        case BT_PIN_Pin_21:
+            output9::setValue(value);
+            break;
+        case BT_PIN_Pin_25:
+            output8::setValue(value);
+            break;
+        case BT_PIN_Pin_26:
+            output7::setValue(value);
             break;
 
         default:
