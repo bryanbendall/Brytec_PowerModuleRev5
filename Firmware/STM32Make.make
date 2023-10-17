@@ -22,7 +22,7 @@ TARGET = PowerModuleRev5
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -Og
+OPT = -O0
 
 
 #######################################
@@ -82,6 +82,7 @@ USB_Device/Target/usbd_conf.c
 
 
 CPP_SOURCES = \
+App/BoardHardware.cpp \
 App/PowerModuleRev5Board.cpp \
 App/cppMain.cpp \
 BrytecConfigEmbedded/Can/EBrytecCan.cpp \
@@ -126,6 +127,7 @@ BrytecConfigEmbedded/Utils/PlacementNew.cpp \
 Stm32Files/CanBus.cpp \
 Stm32Files/Fram.cpp \
 Stm32Files/FramDeserializer.cpp \
+Stm32Files/L9966.cpp \
 Stm32Files/PwmDriver.cpp \
 Stm32Files/Usb.cpp
 

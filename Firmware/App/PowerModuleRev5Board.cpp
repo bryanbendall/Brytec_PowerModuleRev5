@@ -1,8 +1,10 @@
 #include "BrytecBoard.h"
 
+#include "BoardHardware.h"
 #include "CanBus.h"
 #include "Fram.h"
 #include "FramDeserializer.h"
+#include "L9966.h"
 #include "PowerModuleRev5Defs.h"
 #include "PowerOutput.h"
 #include "PwmDriverOutput.h"
@@ -10,19 +12,17 @@
 #include "Usb.h"
 #include "adc.h"
 #include "gpio.h"
-#include <stdio.h>
 
-extern volatile uint16_t adcConv[10];
-#define ADCIN_2 adcConv[0]
-#define ADCIN_3 adcConv[1]
-#define ADCIN_4 adcConv[2]
-#define ADCIN_1 adcConv[3]
-#define ADCIN_12 adcConv[4]
-#define ADCIN_5 adcConv[5]
-#define ADCIN_11 adcConv[6]
-#define ADCIN_14 adcConv[7]
-#define ADCIN_1x2 adcConv[8]
-#define ADCIN_12x2 adcConv[9]
+#define ADCIN_2 BoardHardware::getAdcData(0)
+#define ADCIN_3 BoardHardware::getAdcData(1)
+#define ADCIN_4 BoardHardware::getAdcData(2)
+#define ADCIN_1 BoardHardware::getAdcData(3)
+#define ADCIN_12 BoardHardware::getAdcData(4)
+#define ADCIN_5 BoardHardware::getAdcData(5)
+#define ADCIN_11 BoardHardware::getAdcData(6)
+#define ADCIN_14 BoardHardware::getAdcData(7)
+#define ADCIN_1x2 BoardHardware::getAdcData(8)
+#define ADCIN_12x2 BoardHardware::getAdcData(9)
 
 namespace Brytec {
 
@@ -44,6 +44,8 @@ FramDeserializer deserializer;
 
 BinaryDeserializer* BrytecBoard::getDeserializer()
 {
+    BoardHardware::setSpiMemory();
+
     FramDeserializer des;
     deserializer = des;
     return &deserializer;
@@ -156,8 +158,26 @@ void BrytecBoard::shutdownAllPins()
     output10::setDiagnostics(false);
 }
 
-float BrytecBoard::getPinValue(uint16_t index)
+float BrytecBoard::getPinValue(uint16_t index, IOTypes::Types type)
 {
+    return 0.0f;
+
+    BoardHardware::setSpiL9966();
+
+    if (type == IOTypes::Types::Input_20V_Variable || type == IOTypes::Types::Input_5V_Variable) {
+        switch (index) {
+        case BT_PIN_Pin_22: // Input 1
+            return L9966::readIoVoltage(5);
+        case BT_PIN_Pin_23: // Input 2
+            return L9966::readIoVoltage(6);
+        case BT_PIN_Pin_24: // Input 3
+            return L9966::readIoVoltage(7);
+
+        default:
+            break;
+        }
+    }
+
     return 0.0f;
 }
 
@@ -198,7 +218,7 @@ float getAdcVoltage(uint16_t index)
         break;
 
     default:
-        break;
+        return 0.0f;
     }
 
     return (float)conversion / 4095.0f * 3.3f;
@@ -206,7 +226,44 @@ float getAdcVoltage(uint16_t index)
 
 float BrytecBoard::getPinVoltage(uint16_t index)
 {
-    return getAdcVoltage(index);
+    // return getAdcVoltage(index);
+
+    BoardHardware::setSpiL9966();
+
+    switch (index) {
+    case BT_PIN_Pin_1_and_8: // Output 3
+        return L9966::readIoVoltage(13);
+    case BT_PIN_Pin_2_and_9: // Output 6
+        return L9966::readIoVoltage(4);
+    case BT_PIN_Pin_6_and_12: // Output 1
+        return L9966::readIoVoltage(11);
+    case BT_PIN_Pin_7_and_13: // Output 5
+        return L9966::readIoVoltage(12);
+    case BT_PIN_Pin_14_and_15: // Output 4
+        return L9966::readIoVoltage(3);
+    case BT_PIN_Pin_18_and_19: // Output 2
+        return L9966::readIoVoltage(10);
+    case BT_PIN_Pin_20: // Output 10
+        return L9966::readIoVoltage(2);
+    case BT_PIN_Pin_21: // Output 9
+        return L9966::readIoVoltage(1);
+    case BT_PIN_Pin_25: // Output 8
+        return L9966::readIoVoltage(8);
+    case BT_PIN_Pin_26: // Output 7
+        return L9966::readIoVoltage(9);
+
+    case BT_PIN_Pin_22: // Input 1
+        return L9966::readIoVoltage(5);
+    case BT_PIN_Pin_23: // Input 2
+        return L9966::readIoVoltage(6);
+    case BT_PIN_Pin_24: // Input 3
+        return L9966::readIoVoltage(7);
+
+    default:
+        break;
+    }
+
+    return 0.0f;
 }
 
 float BrytecBoard::getPinCurrent(uint16_t index)
@@ -274,11 +331,15 @@ void BrytecBoard::sendBrytecCan(CanExtFrame frame)
 
 void BrytecBoard::ReserveConfigSize(uint16_t size)
 {
+    BoardHardware::setSpiMemory();
+
     Fram::write(0, (uint8_t*)&size, 2);
 }
 
 void BrytecBoard::updateConfig(uint8_t* data, uint32_t size, uint32_t offset)
 {
+    BoardHardware::setSpiMemory();
+
     // Add room for storing the size
     Fram::write(offset + 2, data, size);
 }
@@ -298,6 +359,8 @@ void BrytecBoard::getTemplateData(uint8_t* dest, uint32_t offset, uint32_t lengt
 
 uint32_t BrytecBoard::getConfigSize()
 {
+    BoardHardware::setSpiMemory();
+
     uint16_t dataSize;
     Fram::read(0, (uint8_t*)&dataSize, 2);
     return dataSize;
@@ -305,6 +368,8 @@ uint32_t BrytecBoard::getConfigSize()
 
 void BrytecBoard::getConfigData(uint8_t* dest, uint32_t offset, uint32_t length)
 {
+    BoardHardware::setSpiMemory();
+
     Fram::read(offset + 2, dest, length);
 }
 }
