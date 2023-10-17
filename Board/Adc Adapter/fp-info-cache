@@ -1,4 +1,4 @@
-22272066017309089
+22273763322819903
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -63055,6 +63055,13 @@ AT04-12PA-BM03
 0
 15
 12
+MyKiCadLibraries
+C_0603_1608Metric_Adaptor
+Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+capacitor handsolder
+0
+2
+2
 MyKiCadLibraries
 DT15-08
 
