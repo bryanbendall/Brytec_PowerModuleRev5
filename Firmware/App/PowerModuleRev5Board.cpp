@@ -160,18 +160,34 @@ void BrytecBoard::shutdownAllPins()
 
 float BrytecBoard::getPinValue(uint16_t index, IOTypes::Types type)
 {
-    return 0.0f;
-
     BoardHardware::setSpiL9966();
 
     if (type == IOTypes::Types::Input_20V_Variable || type == IOTypes::Types::Input_5V_Variable) {
+
+        L9966::VoltageRange range = L9966::VoltageRange::TwentyVolt;
+        if (type == IOTypes::Types::Input_5V_Variable)
+            range = L9966::VoltageRange::FiveVolt;
+
         switch (index) {
+            // case BT_PIN_Pin_22: // Input 1
+            //     return L9966::readIoVoltage(5, range);
+            // case BT_PIN_Pin_23: // Input 2
+            //     return L9966::readIoVoltage(6, range);
+            // case BT_PIN_Pin_24: // Input 3
+            //     return L9966::readIoVoltage(7, range);
+
         case BT_PIN_Pin_22: // Input 1
-            return L9966::readIoVoltage(5);
+            return L9966::readIoResistance(5, L9966::ResistanceRange::RR2);
         case BT_PIN_Pin_23: // Input 2
-            return L9966::readIoVoltage(6);
+            return L9966::readIoResistance(6, L9966::ResistanceRange::RR2);
         case BT_PIN_Pin_24: // Input 3
-            return L9966::readIoVoltage(7);
+        {
+            // return L9966::readIoResistance(7, L9966::ResistanceRange::RR2);
+            float a = L9966::readIoResistance(7, L9966::ResistanceRange::RR1);
+            float b = L9966::readIoResistance(7, L9966::ResistanceRange::RR2);
+            // float c = L9966::readIoResistance(7, L9966::ResistanceRange::RR3);
+            return b;
+        }
 
         default:
             break;
@@ -226,38 +242,36 @@ float getAdcVoltage(uint16_t index)
 
 float BrytecBoard::getPinVoltage(uint16_t index)
 {
-    // return getAdcVoltage(index);
-
     BoardHardware::setSpiL9966();
 
     switch (index) {
     case BT_PIN_Pin_1_and_8: // Output 3
-        return L9966::readIoVoltage(13);
+        return L9966::readIoVoltage(13, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_2_and_9: // Output 6
-        return L9966::readIoVoltage(4);
+        return L9966::readIoVoltage(4, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_6_and_12: // Output 1
-        return L9966::readIoVoltage(11);
+        return L9966::readIoVoltage(11, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_7_and_13: // Output 5
-        return L9966::readIoVoltage(12);
+        return L9966::readIoVoltage(12, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_14_and_15: // Output 4
-        return L9966::readIoVoltage(3);
+            return L9966::readIoVoltage(3, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_18_and_19: // Output 2
-        return L9966::readIoVoltage(10);
+            return L9966::readIoVoltage(10, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_20: // Output 10
-        return L9966::readIoVoltage(2);
+            return L9966::readIoVoltage(2, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_21: // Output 9
-        return L9966::readIoVoltage(1);
+            return L9966::readIoVoltage(1, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_25: // Output 8
-        return L9966::readIoVoltage(8);
+            return L9966::readIoVoltage(8, L9966::VoltageRange::TwentyVolt);
     case BT_PIN_Pin_26: // Output 7
-        return L9966::readIoVoltage(9);
+            return L9966::readIoVoltage(9, L9966::VoltageRange::TwentyVolt);
 
-    case BT_PIN_Pin_22: // Input 1
-        return L9966::readIoVoltage(5);
-    case BT_PIN_Pin_23: // Input 2
-        return L9966::readIoVoltage(6);
-    case BT_PIN_Pin_24: // Input 3
-        return L9966::readIoVoltage(7);
+            // case BT_PIN_Pin_22: // Input 1
+            //     return L9966::readIoVoltage(5, L9966::VoltageRange::TwentyVolt);
+            // case BT_PIN_Pin_23: // Input 2
+            //     return L9966::readIoVoltage(6, L9966::VoltageRange::TwentyVolt);
+            // case BT_PIN_Pin_24: // Input 3
+            //     return L9966::readIoVoltage(7, L9966::VoltageRange::TwentyVolt);
 
     default:
         break;

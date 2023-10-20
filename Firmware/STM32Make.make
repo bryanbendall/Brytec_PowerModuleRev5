@@ -75,6 +75,7 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c \
+Stm32Files/UsDelay.c \
 USB_Device/App/usb_device.c \
 USB_Device/App/usbd_cdc_if.c \
 USB_Device/App/usbd_desc.c \

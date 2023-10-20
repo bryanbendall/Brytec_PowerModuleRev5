@@ -5,12 +5,15 @@
 #include "EBrytecApp.h"
 #include "L9966.h"
 #include "PwmDriver.h"
+#include "UsDelay.h"
 #include "Usb.h"
 #include "stm32g4xx_hal.h"
 #include <stdint.h>
 
 void cppMain()
 {
+    DWT_Delay_Init();
+
     PwmDriver::init();
 
     Brytec::EBrytecApp::initalize();
