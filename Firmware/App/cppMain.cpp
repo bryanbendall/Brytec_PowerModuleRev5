@@ -10,11 +10,18 @@
 #include "stm32g4xx_hal.h"
 #include <stdint.h>
 
+bool lastIgntionPowerState = false;
+
 void cppMain()
 {
     DWT_Delay_Init();
 
     PwmDriver::init();
+
+    BoardHardware::calibrateAdc();
+
+    BoardHardware::setSpiL9966();
+    L9966::init();
 
     Brytec::EBrytecApp::initalize();
 
@@ -25,14 +32,15 @@ void cppMain()
 
     CanBus::start();
 
-    BoardHardware::calibrateAdc();
-
-    BoardHardware::setSpiL9966();
-    L9966::init();
-
     while (1) {
 
         Usb::update();
+
+        bool igntionPowerState = BoardHardware::getIgntionPowerState();
+        if (igntionPowerState != lastIgntionPowerState) {
+            PwmDriver::setEnableOutput(igntionPowerState);
+            lastIgntionPowerState = igntionPowerState;
+        }
 
         // Brytec //////////////////////////////
         static uint64_t lastMillis = 0;
