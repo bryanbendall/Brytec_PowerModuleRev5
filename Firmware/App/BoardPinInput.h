@@ -39,7 +39,7 @@ public:
         case Brytec::IOTypes::Types::Input_20V_Variable:
             return Input::readVoltage(L9966::VoltageRange::TwentyVolt);
 
-        case Brytec::IOTypes::Types::Resistance:
+        case Brytec::IOTypes::Types::Input_Resistance:
             return Input::readResistance();
 
         default:

@@ -36,6 +36,8 @@ void cppMain()
 
         Usb::update();
 
+        Brytec::EBrytecApp::processCanCommands();
+
         bool igntionPowerState = BoardHardware::getIgntionPowerState();
         if (igntionPowerState != lastIgntionPowerState) {
             PwmDriver::setEnableOutput(igntionPowerState);
