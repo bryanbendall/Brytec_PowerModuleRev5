@@ -87,6 +87,7 @@ App/BoardHardware.cpp \
 App/PowerModuleRev5Board.cpp \
 App/cppMain.cpp \
 BrytecConfigEmbedded/Can/EBrytecCan.cpp \
+BrytecConfigEmbedded/Can/ECanBus.cpp \
 BrytecConfigEmbedded/Can/ECanCommandQueue.cpp \
 BrytecConfigEmbedded/Can/EPinStatusQueue.cpp \
 BrytecConfigEmbedded/Deserializer/BinaryArrayDeserializer.cpp \

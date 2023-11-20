@@ -96,8 +96,9 @@ void BrytecBoard::error(EBrytecErrors error)
     }
 }
 
-void BrytecBoard::setupBrytecCan(uint32_t mask, uint32_t filter)
+void BrytecBoard::setupCan(uint8_t index, CanSpeed::Types speed)
 {
+    // TODO
 }
 
 void BrytecBoard::setupPin(uint16_t index, IOTypes::Types type)
@@ -349,9 +350,16 @@ void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
     }
 }
 
-void BrytecBoard::sendBrytecCan(const CanExtFrame& frame)
+void BrytecBoard::sendCan(uint8_t index, const CanExtFrame& frame)
 {
-    CanBus::send(frame);
+    switch (index) {
+    case BT_CAN_Pin_4_Pin_5:
+        CanBus::send(frame);
+        break;
+
+    default:
+        break;
+    }
 }
 
 void BrytecBoard::sendBrytecCanUsb(const CanExtFrame& frame)
