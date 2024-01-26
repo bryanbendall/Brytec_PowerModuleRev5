@@ -30,8 +30,6 @@ void cppMain()
     else
         printf("Deserialize FAIL\n");
 
-    CanBus::start();
-
     while (1) {
 
         Usb::update();

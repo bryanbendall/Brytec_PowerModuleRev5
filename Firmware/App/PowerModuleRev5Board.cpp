@@ -109,45 +109,45 @@ void BrytecBoard::setupPin(uint16_t index, IOTypes::Types type)
 
     // Inputs and Outputs
     case BT_PIN_Pin_1_and_8:
-        out3::setupType(type);
-        break;
-    case BT_PIN_Pin_2_and_9:
-        out6::setupType(type);
-        break;
-    case BT_PIN_Pin_6_and_12:
-        out1::setupType(type);
-        break;
-    case BT_PIN_Pin_7_and_13:
         out5::setupType(type);
         break;
-    case BT_PIN_Pin_14_and_15:
-        out4::setupType(type);
+    case BT_PIN_Pin_2_and_9:
+        out1::setupType(type);
         break;
-    case BT_PIN_Pin_18_and_19:
+    case BT_PIN_Pin_6_and_12:
+        out6::setupType(type);
+        break;
+    case BT_PIN_Pin_7_and_13:
+        out3::setupType(type);
+        break;
+    case BT_PIN_Pin_14_and_15:
         out2::setupType(type);
         break;
+    case BT_PIN_Pin_18_and_19:
+        out4::setupType(type);
+        break;
     case BT_PIN_Pin_20:
-        out10::setupType(type);
+        out7::setupType(type);
         break;
     case BT_PIN_Pin_21:
-        out9::setupType(type);
-        break;
-    case BT_PIN_Pin_25:
         out8::setupType(type);
         break;
+    case BT_PIN_Pin_25:
+        out9::setupType(type);
+        break;
     case BT_PIN_Pin_26:
-        out7::setupType(type);
+        out10::setupType(type);
         break;
 
     // Inputs only
     case BT_PIN_Pin_22:
-        in1::setupType(type);
+        in3::setupType(type);
         break;
     case BT_PIN_Pin_23:
         in2::setupType(type);
         break;
     case BT_PIN_Pin_24:
-        in3::setupType(type);
+        in1::setupType(type);
         break;
 
     default:
@@ -182,33 +182,33 @@ float BrytecBoard::getPinValue(uint16_t index, IOTypes::Types type)
 
     // Inputs and Outputs
     case BT_PIN_Pin_1_and_8:
-        return out3::getValue(type);
-    case BT_PIN_Pin_2_and_9:
-        return out6::getValue(type);
-    case BT_PIN_Pin_6_and_12:
-        return out1::getValue(type);
-    case BT_PIN_Pin_7_and_13:
         return out5::getValue(type);
+    case BT_PIN_Pin_2_and_9:
+        return out1::getValue(type);
+    case BT_PIN_Pin_6_and_12:
+        return out6::getValue(type);
+    case BT_PIN_Pin_7_and_13:
+        return out3::getValue(type);
     case BT_PIN_Pin_14_and_15:
-        return out4::getValue(type);
-    case BT_PIN_Pin_18_and_19:
         return out2::getValue(type);
+    case BT_PIN_Pin_18_and_19:
+        return out4::getValue(type);
     case BT_PIN_Pin_20:
-        return out10::getValue(type);
-    case BT_PIN_Pin_21:
-        return out9::getValue(type);
-    case BT_PIN_Pin_25:
-        return out8::getValue(type);
-    case BT_PIN_Pin_26:
         return out7::getValue(type);
+    case BT_PIN_Pin_21:
+        return out8::getValue(type);
+    case BT_PIN_Pin_25:
+        return out9::getValue(type);
+    case BT_PIN_Pin_26:
+        return out10::getValue(type);
 
         // Inputs
     case BT_PIN_Pin_22:
-        return in1::getValue(type);
+        return in3::getValue(type);
     case BT_PIN_Pin_23:
         return in2::getValue(type);
     case BT_PIN_Pin_24:
-        return in3::getValue(type);
+        return in1::getValue(type);
 
     default:
         break;
@@ -223,34 +223,34 @@ float getAdcVoltage(uint16_t index)
 
     switch (index) {
     case BT_PIN_Pin_1_and_8:
-        conversion = ADCIN_3;
-        break;
-    case BT_PIN_Pin_2_and_9:
-        conversion = ADCIN_4;
-        break;
-    case BT_PIN_Pin_6_and_12:
-        conversion = ADCIN_5;
-        break;
-    case BT_PIN_Pin_7_and_13:
         conversion = ADCIN_11;
         break;
-    case BT_PIN_Pin_14_and_15:
-        conversion = ADCIN_2;
+    case BT_PIN_Pin_2_and_9:
+        conversion = ADCIN_5;
         break;
-    case BT_PIN_Pin_18_and_19:
+    case BT_PIN_Pin_6_and_12:
+        conversion = ADCIN_4;
+        break;
+    case BT_PIN_Pin_7_and_13:
+        conversion = ADCIN_3;
+        break;
+    case BT_PIN_Pin_14_and_15:
         conversion = ADCIN_14;
         break;
+    case BT_PIN_Pin_18_and_19:
+        conversion = ADCIN_2;
+        break;
     case BT_PIN_Pin_20:
-        conversion = ADCIN_1x2;
+        conversion = ADCIN_12;
         break;
     case BT_PIN_Pin_21:
-        conversion = ADCIN_1;
-        break;
-    case BT_PIN_Pin_25:
         conversion = ADCIN_12x2;
         break;
+    case BT_PIN_Pin_25:
+        conversion = ADCIN_1;
+        break;
     case BT_PIN_Pin_26:
-        conversion = ADCIN_12;
+        conversion = ADCIN_1x2;
         break;
 
     default:
@@ -266,25 +266,25 @@ float BrytecBoard::getPinVoltage(uint16_t index)
 
     switch (index) {
     case BT_PIN_Pin_1_and_8:
-        return out3::readVoltage();
-    case BT_PIN_Pin_2_and_9:
-        return out6::readVoltage();
-    case BT_PIN_Pin_6_and_12:
-        return out1::readVoltage();
-    case BT_PIN_Pin_7_and_13:
         return out5::readVoltage();
+    case BT_PIN_Pin_2_and_9:
+        return out1::readVoltage();
+    case BT_PIN_Pin_6_and_12:
+        return out6::readVoltage();
+    case BT_PIN_Pin_7_and_13:
+        return out3::readVoltage();
     case BT_PIN_Pin_14_and_15:
-        return out4::readVoltage();
-    case BT_PIN_Pin_18_and_19:
         return out2::readVoltage();
+    case BT_PIN_Pin_18_and_19:
+        return out4::readVoltage();
     case BT_PIN_Pin_20:
-        return out10::readVoltage();
-    case BT_PIN_Pin_21:
-        return out9::readVoltage();
-    case BT_PIN_Pin_25:
-        return out8::readVoltage();
-    case BT_PIN_Pin_26:
         return out7::readVoltage();
+    case BT_PIN_Pin_21:
+        return out8::readVoltage();
+    case BT_PIN_Pin_25:
+        return out9::readVoltage();
+    case BT_PIN_Pin_26:
+        return out10::readVoltage();
 
     default:
         break;
@@ -314,34 +314,34 @@ void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
     if (type == IOTypes::Types::Output_Batt) {
         switch (index) {
         case BT_PIN_Pin_1_and_8:
-            out3::setValue(value);
-            break;
-        case BT_PIN_Pin_2_and_9:
-            out6::setValue(value);
-            break;
-        case BT_PIN_Pin_6_and_12:
-            out1::setValue(value);
-            break;
-        case BT_PIN_Pin_7_and_13:
             out5::setValue(value);
             break;
-        case BT_PIN_Pin_14_and_15:
-            out4::setValue(value);
+        case BT_PIN_Pin_2_and_9:
+            out1::setValue(value);
             break;
-        case BT_PIN_Pin_18_and_19:
+        case BT_PIN_Pin_6_and_12:
+            out6::setValue(value);
+            break;
+        case BT_PIN_Pin_7_and_13:
+            out3::setValue(value);
+            break;
+        case BT_PIN_Pin_14_and_15:
             out2::setValue(value);
             break;
+        case BT_PIN_Pin_18_and_19:
+            out4::setValue(value);
+            break;
         case BT_PIN_Pin_20:
-            out10::setValue(value);
+            out7::setValue(value);
             break;
         case BT_PIN_Pin_21:
-            out9::setValue(value);
-            break;
-        case BT_PIN_Pin_25:
             out8::setValue(value);
             break;
+        case BT_PIN_Pin_25:
+            out9::setValue(value);
+            break;
         case BT_PIN_Pin_26:
-            out7::setValue(value);
+            out10::setValue(value);
             break;
 
         default:
@@ -350,22 +350,15 @@ void BrytecBoard::setPinValue(uint16_t index, IOTypes::Types type, float value)
     }
 }
 
-void BrytecBoard::sendCan(uint8_t index, const CanExtFrame& frame)
+void BrytecBoard::sendCan(uint8_t index, const CanFrame& frame)
 {
-    switch (index) {
-    case BT_CAN_Pin_4_Pin_5:
-        CanBus::send(frame);
-        break;
-
-    default:
-        break;
-    }
+    CanBus::send(index, frame);
 }
 
-void BrytecBoard::sendBrytecCanUsb(const CanExtFrame& frame)
+void BrytecBoard::sendBrytecCanUsb(const CanFrame& frame)
 {
     Brytec::UsbPacket packet;
-    packet.set<Brytec::CanExtFrame>(frame);
+    packet.set<Brytec::CanFrame>(frame);
     Usb::send(packet);
 }
 
