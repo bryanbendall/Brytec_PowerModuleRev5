@@ -3,6 +3,7 @@
 #include "BoardHardware.h"
 #include "CanBus.h"
 #include "EBrytecApp.h"
+#include "Fram.h"
 #include "L9966.h"
 #include "PwmDriver.h"
 #include "UsDelay.h"
@@ -20,8 +21,11 @@ void cppMain()
 
     BoardHardware::calibrateAdc();
 
+    BoardHardware::setSpiMemory();
+    Fram::init(&hspi1);
+
     BoardHardware::setSpiL9966();
-    L9966::init();
+    L9966::init(&hspi1);
 
     Brytec::EBrytecApp::initalize();
 
@@ -54,5 +58,6 @@ void cppMain()
         /////////////////////////////////////////
 
         BoardHardware::readAllAdc();
+        BoardHardware::printAllAdc();
     }
 }

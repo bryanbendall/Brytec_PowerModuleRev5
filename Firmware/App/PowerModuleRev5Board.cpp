@@ -171,7 +171,7 @@ void BrytecBoard::shutdownAllPins()
 
     BoardHardware::setSpiL9966();
     L9966::softwareReset();
-    L9966::init();
+    L9966::init(&hspi1);
 }
 
 float BrytecBoard::getPinValue(uint16_t index, IOTypes::Types type)

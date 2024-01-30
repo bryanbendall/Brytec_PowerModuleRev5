@@ -1,8 +1,6 @@
-#pragma once
+#include "CanBusDefs.h"
 
 #include "PowerModuleRev5Defs.h"
-#include "fdcan.h"
-#include <stdint.h>
 
 namespace CanBusDefs {
 

@@ -52,27 +52,27 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, CanSilent_Pin|Dsel7_8_Pin|L6699_Rst_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, CanSilent_Pin|Dsel7_8_Pin|L9966_Rst_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(Memory_Hold_GPIO_Port, Memory_Hold_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, Memory_SS_Pin|SPI1_SS_L9966_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, Memory_SS_Pin|SPI_SS_L9966_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(Memory_Wp_GPIO_Port, Memory_Wp_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, User_Led_Pin|Den2_Pin|L6699_Sync_Pin|Pwm_Ctr_Enable_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, User_Led_Pin|Den2_Pin|L9966_Sync_Pin|Pwm_Ctr_Enable_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, Den7_8_Pin|Den5_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PCPin PCPin PCPin PCPin
                            PCPin */
-  GPIO_InitStruct.Pin = CanSilent_Pin|Memory_SS_Pin|Dsel7_8_Pin|SPI1_SS_L9966_Pin
-                          |L6699_Rst_Pin;
+  GPIO_InitStruct.Pin = CanSilent_Pin|Memory_SS_Pin|Dsel7_8_Pin|SPI_SS_L9966_Pin
+                          |L9966_Rst_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -93,7 +93,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PBPin PBPin PBPin PBPin
                            PBPin */
-  GPIO_InitStruct.Pin = Memory_Wp_Pin|User_Led_Pin|Den2_Pin|L6699_Sync_Pin
+  GPIO_InitStruct.Pin = Memory_Wp_Pin|User_Led_Pin|Den2_Pin|L9966_Sync_Pin
                           |Pwm_Ctr_Enable_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -101,7 +101,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PBPin PBPin PBPin */
-  GPIO_InitStruct.Pin = PowerSwitchStatus_Pin|L6699_Int_Pin|BOOT_0_Pin;
+  GPIO_InitStruct.Pin = PowerSwitchStatus_Pin|L9966_Int_Pin|BOOT_0_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
