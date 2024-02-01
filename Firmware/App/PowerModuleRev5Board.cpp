@@ -98,7 +98,7 @@ void BrytecBoard::error(EBrytecErrors error)
 
 void BrytecBoard::setupCan(uint8_t index, CanSpeed::Types speed)
 {
-    // TODO
+    CanBus::start(index, speed);
 }
 
 void BrytecBoard::setupPin(uint16_t index, IOTypes::Types type)
