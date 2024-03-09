@@ -111,6 +111,7 @@ BrytecConfigEmbedded/Nodes/EDelayNode.cpp \
 BrytecConfigEmbedded/Nodes/EFinalValueNode.cpp \
 BrytecConfigEmbedded/Nodes/EHolleyBroadcastNode.cpp \
 BrytecConfigEmbedded/Nodes/EInitialValueNode.cpp \
+BrytecConfigEmbedded/Nodes/EInterpolateNode.cpp \
 BrytecConfigEmbedded/Nodes/EInvertNode.cpp \
 BrytecConfigEmbedded/Nodes/EMapValueNode.cpp \
 BrytecConfigEmbedded/Nodes/EMathNode.cpp \
@@ -134,6 +135,7 @@ Stm32Files/CanBus.cpp \
 Stm32Files/Fram.cpp \
 Stm32Files/FramDeserializer.cpp \
 Stm32Files/L9966.cpp \
+Stm32Files/MsTimeout.cpp \
 Stm32Files/PwmDriver.cpp \
 Stm32Files/Usb.cpp
 

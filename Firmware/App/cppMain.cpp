@@ -5,12 +5,16 @@
 #include "EBrytecApp.h"
 #include "Fram.h"
 #include "L9966.h"
+#include "MsTimeout.h"
 #include "PwmDriver.h"
 #include "UsDelay.h"
 #include "Usb.h"
 #include "stm32g4xx_hal.h"
 #include <stdint.h>
 
+MsTimeout brytecMs(10);
+MsTimeout adcTimeout(100);
+MsTimeout adcPrintTimeout(1000);
 bool lastIgntionPowerState = false;
 
 void cppMain()
@@ -46,18 +50,13 @@ void cppMain()
             lastIgntionPowerState = igntionPowerState;
         }
 
-        // Brytec //////////////////////////////
-        static uint64_t lastMillis = 0;
-        uint64_t difference = HAL_GetTick() - lastMillis;
-        if (difference >= 10) {
-            float timestep = ((float)difference * 0.001f);
-            lastMillis = HAL_GetTick();
+        if (brytecMs.isTimeout())
+            Brytec::EBrytecApp::update(brytecMs.getTimestep());
 
-            Brytec::EBrytecApp::update(timestep);
-        }
-        /////////////////////////////////////////
+        if (adcTimeout.isTimeout())
+            BoardHardware::readNextAdc();
 
-        BoardHardware::readAllAdc();
-        BoardHardware::printAllAdc();
+        if (adcPrintTimeout.isTimeout())
+            BoardHardware::printAllAdc();
     }
 }

@@ -1,5 +1,6 @@
 #include "BoardHardware.h"
 
+#include "MsTimeout.h"
 #include "PwmDriverOutput.h"
 #include "Stm32Output.h"
 #include "adc.h"
@@ -83,45 +84,34 @@ void BoardHardware::calibrateAdc()
     HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
 }
 
-void BoardHardware::readAllAdc()
+void BoardHardware::readNextAdc()
 {
-    static uint64_t lastAdc = 0;
-    uint64_t adcDifference = HAL_GetTick() - lastAdc;
-    if (adcDifference >= 50) {
-        lastAdc = HAL_GetTick();
+    static uint8_t channel = 0;
 
-        static uint8_t channel = 0;
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    s_data.adcConv[channel] = HAL_ADC_GetValue(&hadc1);
+    channel++;
+    channel = channel % ADC_NUM;
 
-        HAL_ADC_Start(&hadc1);
-        HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-        s_data.adcConv[channel] = HAL_ADC_GetValue(&hadc1);
-        channel++;
-        channel = channel % ADC_NUM;
-
-        if (channel == 0) {
-            // Select output 0
-            dsel7_8::setState(false);
-            dsel9_10::setState(false);
-        } else if (channel == 5) {
-            // Select output 1
-            dsel7_8::setState(true);
-            dsel9_10::setState(true);
-        }
+    if (channel == 0) {
+        // Select output 0
+        dsel7_8::setState(false);
+        dsel9_10::setState(false);
+    } else if (channel == 5) {
+        // Select output 1
+        dsel7_8::setState(true);
+        dsel9_10::setState(true);
     }
 }
 
 void BoardHardware::printAllAdc()
 {
-    static uint64_t lastMillisPrint = 0;
-    uint64_t difference = HAL_GetTick() - lastMillisPrint;
-    if (difference >= 1000) {
-        lastMillisPrint = HAL_GetTick();
-        printf("Adc readings - ");
-        for (int i = 0; i < ADC_NUM; i++) {
-            printf("%d, ", s_data.adcConv[i]);
-        }
-        printf("\n");
+    printf("Adc readings - ");
+    for (int i = 0; i < ADC_NUM; i++) {
+        printf("%4d, ", s_data.adcConv[i]);
     }
+    printf("\n");
 }
 
 uint16_t BoardHardware::getAdcData(uint8_t index)

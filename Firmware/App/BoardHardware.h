@@ -9,7 +9,7 @@ public:
     static void setSpiL9966();
 
     static void calibrateAdc();
-    static void readAllAdc();
+    static void readNextAdc();
     static void printAllAdc();
     static uint16_t getAdcData(uint8_t index);
 
