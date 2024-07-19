@@ -27,6 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "BootloaderTools.h"
 #include "cppMain.h"
 /* USER CODE END Includes */
 
@@ -69,6 +70,8 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+  checkAndGoToBootloader();
 
   /* USER CODE END 1 */
 

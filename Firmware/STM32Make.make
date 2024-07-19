@@ -128,10 +128,12 @@ BrytecConfigEmbedded/Nodes/ESwitchNode.cpp \
 BrytecConfigEmbedded/Nodes/EToggleNode.cpp \
 BrytecConfigEmbedded/Nodes/ETwoStageNode.cpp \
 BrytecConfigEmbedded/Nodes/EValueNode.cpp \
+BrytecConfigEmbedded/Usb/ModuleCommand.cpp \
 BrytecConfigEmbedded/Usb/UsbDefs.cpp \
 BrytecConfigEmbedded/Utils/ENodeDeserializer.cpp \
 BrytecConfigEmbedded/Utils/ENodeGroup.cpp \
 BrytecConfigEmbedded/Utils/PlacementNew.cpp \
+Stm32Files/BootloaderTools.cpp \
 Stm32Files/CanBus.cpp \
 Stm32Files/Fram.cpp \
 Stm32Files/FramDeserializer.cpp \
