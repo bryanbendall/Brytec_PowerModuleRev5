@@ -262,33 +262,33 @@ float getAdcVoltage(uint16_t index)
 
 float BrytecBoard::getPinVoltage(uint16_t index)
 {
-    BoardHardware::setSpiL9966();
+    // BoardHardware::setSpiL9966();
 
-    switch (index) {
-    case BT_PIN_Pin_1_and_8:
-        return out5::readVoltage();
-    case BT_PIN_Pin_2_and_9:
-        return out1::readVoltage();
-    case BT_PIN_Pin_6_and_12:
-        return out6::readVoltage();
-    case BT_PIN_Pin_7_and_13:
-        return out3::readVoltage();
-    case BT_PIN_Pin_14_and_15:
-        return out2::readVoltage();
-    case BT_PIN_Pin_18_and_19:
-        return out4::readVoltage();
-    case BT_PIN_Pin_20:
-        return out7::readVoltage();
-    case BT_PIN_Pin_21:
-        return out8::readVoltage();
-    case BT_PIN_Pin_25:
-        return out9::readVoltage();
-    case BT_PIN_Pin_26:
-        return out10::readVoltage();
+    // switch (index) {
+    // case BT_PIN_Pin_1_and_8:
+    //     return out5::readVoltage();
+    // case BT_PIN_Pin_2_and_9:
+    //     return out1::readVoltage();
+    // case BT_PIN_Pin_6_and_12:
+    //     return out6::readVoltage();
+    // case BT_PIN_Pin_7_and_13:
+    //     return out3::readVoltage();
+    // case BT_PIN_Pin_14_and_15:
+    //     return out2::readVoltage();
+    // case BT_PIN_Pin_18_and_19:
+    //     return out4::readVoltage();
+    // case BT_PIN_Pin_20:
+    //     return out7::readVoltage();
+    // case BT_PIN_Pin_21:
+    //     return out8::readVoltage();
+    // case BT_PIN_Pin_25:
+    //     return out9::readVoltage();
+    // case BT_PIN_Pin_26:
+    //     return out10::readVoltage();
 
-    default:
-        break;
-    }
+    // default:
+    //     break;
+    // }
 
     return 0.0f;
 }

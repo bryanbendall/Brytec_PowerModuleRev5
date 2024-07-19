@@ -51,12 +51,12 @@ void cppMain()
         }
 
         if (brytecMs.isTimeout())
-            Brytec::EBrytecApp::update(brytecMs.getTimestep());
+            Brytec::EBrytecApp::update(brytecMs.getTimestepMs());
 
         if (adcTimeout.isTimeout())
             BoardHardware::readNextAdc();
 
-        if (adcPrintTimeout.isTimeout())
-            BoardHardware::printAllAdc();
+        // if (adcPrintTimeout.isTimeout())
+        //     BoardHardware::printAllAdc();
     }
 }

@@ -91,6 +91,7 @@ BrytecConfigEmbedded/Can/EBrytecCan.cpp \
 BrytecConfigEmbedded/Can/ECanBus.cpp \
 BrytecConfigEmbedded/Can/ECanCommandQueue.cpp \
 BrytecConfigEmbedded/Can/ECanHolleyBroadcastQueue.cpp \
+BrytecConfigEmbedded/Can/ECustomCanQueue.cpp \
 BrytecConfigEmbedded/Can/EPinStatusQueue.cpp \
 BrytecConfigEmbedded/Deserializer/BinaryArrayDeserializer.cpp \
 BrytecConfigEmbedded/Deserializer/BinaryAvrEepromDeserializer.cpp \
@@ -101,7 +102,8 @@ BrytecConfigEmbedded/EBrytecApp.cpp \
 BrytecConfigEmbedded/ENode.cpp \
 BrytecConfigEmbedded/IOTypes.cpp \
 BrytecConfigEmbedded/Nodes/EAndNode.cpp \
-BrytecConfigEmbedded/Nodes/ECanBusNode.cpp \
+BrytecConfigEmbedded/Nodes/ECanBusInputNode.cpp \
+BrytecConfigEmbedded/Nodes/ECanBusOutputNode.cpp \
 BrytecConfigEmbedded/Nodes/EColorNode.cpp \
 BrytecConfigEmbedded/Nodes/ECompareNode.cpp \
 BrytecConfigEmbedded/Nodes/EConvertNode.cpp \
@@ -126,7 +128,6 @@ BrytecConfigEmbedded/Nodes/ESwitchNode.cpp \
 BrytecConfigEmbedded/Nodes/EToggleNode.cpp \
 BrytecConfigEmbedded/Nodes/ETwoStageNode.cpp \
 BrytecConfigEmbedded/Nodes/EValueNode.cpp \
-BrytecConfigEmbedded/Usb/UsbBuffer.cpp \
 BrytecConfigEmbedded/Usb/UsbDefs.cpp \
 BrytecConfigEmbedded/Utils/ENodeDeserializer.cpp \
 BrytecConfigEmbedded/Utils/ENodeGroup.cpp \
