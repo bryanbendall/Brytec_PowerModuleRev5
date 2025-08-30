@@ -76,9 +76,7 @@ excludes:
   - "**/Example/**"
   - "**/example/**"
   - "**_template.*"
-  - BrytecConfigEmbedded/Boards/ArduinoMegaTest.cpp
-  - BrytecConfigEmbedded/Boards/ArduinoUnoTest.cpp
-  - BrytecConfigEmbedded/Boards/DesktopSimulation.cpp
+  - BrytecConfigEmbedded/Deserializer/BinaryPathDeserializer.cpp
   - Stm32Files/TLE94112.cpp
 
 

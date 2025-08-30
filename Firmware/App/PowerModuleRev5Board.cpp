@@ -59,6 +59,14 @@ BinaryDeserializer* BrytecBoard::getDeserializer()
     return &deserializer;
 }
 
+void BrytecBoard::preUpdate(uint32_t timestepMs)
+{
+}
+
+void BrytecBoard::postUpdate(uint32_t timestepMs)
+{
+}
+
 void BrytecBoard::error(EBrytecErrors error)
 {
     switch (error) {

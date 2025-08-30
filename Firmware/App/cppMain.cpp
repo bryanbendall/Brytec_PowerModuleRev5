@@ -46,7 +46,14 @@ void cppMain()
 
         bool igntionPowerState = BoardHardware::getIgntionPowerState();
         if (igntionPowerState != lastIgntionPowerState) {
+
             PwmDriver::setEnableOutput(igntionPowerState);
+
+            if (igntionPowerState) {
+                BoardHardware::setSpiL9966();
+                L9966::init(&hspi1);
+            }
+
             lastIgntionPowerState = igntionPowerState;
         }
 
